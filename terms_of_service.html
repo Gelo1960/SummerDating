@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conditions d'Utilisation - SummerDating</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@700,600,500,400&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
         * {
             margin: 0;
             padding: 0;
@@ -12,36 +14,45 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
+            color: #0c0c0d;
+            background: linear-gradient(165deg, #FFEFD5 0%, #FFE0E5 20%, #FFD1E9 40%, #FFC2ED 60%, #FFB3E6 80%, #FFA4DC 100%);
+            min-height: 100vh;
         }
         
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
+        .container { max-width: 1000px; margin: 0 auto; background: rgba(255,255,255,0.75); padding: 24px 32px 40px; border-radius: 42px; border: 8px solid #000; box-shadow: 0 30px 80px rgba(0,0,0,0.35); overflow: hidden; margin-top: 40px; }
+        .hero { text-align: center; padding: 140px 0 60px; position: relative; }
+        .badge { display: inline-block; padding: 8px 14px; border-radius: 999px; background: #fff; border: 1.5px solid #e6e6e6; color: #777; font-size: 14px; margin-bottom: 16px; }
+        .hero-title { font-family: 'Space Grotesk', sans-serif; font-size: 76px; line-height: 1.02; letter-spacing: -2px; margin-bottom: 16px; background: linear-gradient(45deg,#0a0a0a,#2a2a2a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-sub { color: #3a3a3a; font-size: 24px; letter-spacing: -0.2px; max-width: 860px; margin: 0 auto; }
+        .chip { position: absolute; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.85); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(255,255,255,0.5); border-radius: 999px; padding: 10px 14px; font-size: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.06); }
+        .slider-cta { width: 420px; max-width: 90%; margin: 22px auto 0; background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.8); border-radius: 999px; box-shadow: 0 12px 30px rgba(0,0,0,0.12); padding: 10px; display: flex; align-items: center; gap: 10px; }
+        .slider-track { position: relative; flex: 1; height: 16px; background: rgba(0,0,0,0.08); border-radius: 999px; overflow: hidden; }
+        .slider-progress { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: linear-gradient(135deg,#ff9ccf,#f6a06b); border-radius: 999px; transition: width 0.08s linear; }
+        .slider-thumb { width: 42px; height: 42px; border-radius: 50%; background: #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+        .slider-label { font-weight: 700; color: #121212; letter-spacing: -0.3px; }
+        .slider-cta.valid { background: rgba(50,205,50,0.85); border-color: rgba(255,255,255,0.9); color: #fff; }
+        .qr-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.55); display: none; align-items: center; justify-content: center; z-index: 2000; }
+        .qr-content { background: #fff; border-radius: 20px; padding: 24px; width: 340px; max-width: 90%; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,0.35); }
+        .qr-title { font-family: 'Space Grotesk', sans-serif; font-size: 26px; letter-spacing: -0.5px; margin-bottom: 8px; }
+        .qr-sub { color: #4a4a4a; font-size: 15px; margin-bottom: 16px; }
+        .qr-img { width: 300px; height: 300px; border-radius: 12px; border: 1px solid #eee; }
+        .qr-close { margin-top: 16px; display: inline-block; padding: 10px 16px; border-radius: 999px; background: #000; color: #fff; text-decoration: none; font-weight: 600; }
+
+        header { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; width: max-content; max-width: calc(100vw - 32px); }
+        nav { display: flex; align-items: center; justify-content: center; gap: 16px; background-color: rgba(255,255,255,0.5); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.7); border-radius: 99px; padding: 8px 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; flex-wrap: wrap; }
+        .logo { display: flex; align-items: center; gap: 10px; padding: 0 16px; }
+        .logo svg { width: 24px; height: 24px; }
+        .logo-img { height: 96px; width: auto; border-radius: 16px; display: block; box-shadow: 0 8px 24px rgba(0,0,0,0.14); }
+        .nav-links { display: flex; list-style: none; position: relative; }
+        .nav-links a { position: relative; z-index: 2; text-decoration: none; color: #121212; font-weight: 500; padding: 12px 22px; font-size: 18px; border-radius: 18px; transition: color 0.3s cubic-bezier(0.65, 0, 0.35, 1); white-space: nowrap; font-family: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .nav-links a.is-hovered { color: #000; }
+        .nav-highlighter { position: absolute; top: 0; left: 0; height: 100%; width: 0; background-color: rgba(255,255,255,0.7); border-radius: 99px; z-index: 1; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         
-        h1 {
-            color: #667eea;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
+        h1 { color: #111; font-size: 2.2em; margin-bottom: 10px; }
         
-        h2 {
-            color: #764ba2;
-            font-size: 1.8em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
-        }
+        h2 { color: #111; font-size: 1.6em; margin-top: 30px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #e6e6e6; }
         
         h3 {
             color: #667eea;
@@ -77,10 +88,7 @@
             margin-top: 30px;
         }
         
-        a {
-            color: #667eea;
-            text-decoration: none;
-        }
+        a { color: #111; text-decoration: none; }
         
         a:hover {
             text-decoration: underline;
@@ -116,8 +124,33 @@
             }
         }
     </style>
+    </style>
 </head>
 <body>
+    <header>
+        <nav id="main-nav">
+            <div class="logo"><img src="ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png" alt="SummerDating" class="logo-img" loading="lazy"></div>
+            <ul class="nav-links" id="nav-links">
+                <span class="nav-highlighter" id="nav-highlighter"></span>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="privacy_policy.html">Confidentialité</a></li>
+                <li><a href="terms_of_service.html">Conditions</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <span class="badge">Conditions</span>
+        <div class="hero-title">Utilisez l’app en confiance.</div>
+        <div class="hero-sub">Lisez nos règles d’utilisation pour garantir une expérience sûre et agréable pour tous les membres de la communauté.</div>
+        <div class="chip" style="left: 8%; top: 68%;">📜 Transparence</div>
+        <div class="chip" style="right: 10%; top: 42%;">🤝 Respect</div>
+        <div class="slider-cta" id="downloadSlider">
+            <div class="slider-thumb" id="sliderThumb">⇥</div>
+            <div class="slider-track"><div class="slider-progress" id="sliderProgress"></div></div>
+            <div class="slider-label">Maintenir pour télécharger</div>
+        </div>
+    </section>
     <div class="container">
         <h1>📜 Conditions d'Utilisation</h1>
         <p class="last-updated">Dernière mise à jour : 13 novembre 2024</p>
@@ -317,5 +350,28 @@
             © 2024 SummerDating. Tous droits réservés.
         </p>
     </div>
+<script>
+const navLinks=document.querySelectorAll('#nav-links a');
+const highlighter=document.getElementById('nav-highlighter');
+const navContainer=document.getElementById('nav-links');
+if(navContainer&&highlighter&&navLinks.length){
+  const move=(t)=>{const r=t.getBoundingClientRect();const n=navContainer.getBoundingClientRect();const l=r.left-n.left;highlighter.style.width=`${r.width}px`;highlighter.style.transform=`translateX(${l}px)`;navLinks.forEach(a=>a.classList.remove('is-hovered'));t.classList.add('is-hovered');};
+  navLinks.forEach(link=>link.addEventListener('mouseenter',e=>move(e.target)));
+  navContainer.addEventListener('mouseleave',()=>{highlighter.style.width='0';highlighter.style.transform='translateX(0)';navLinks.forEach(a=>a.classList.remove('is-hovered'));});
+}
+</script>
+<script>
+const slider=document.getElementById('downloadSlider');
+const thumb=document.getElementById('sliderThumb');
+const progress=document.getElementById('sliderProgress');
+let holdTimer=null;let pct=0;let holding=false;
+const startHold=()=>{if(holding)return;holding=true;pct=0;progress.style.width='0%';slider.classList.remove('valid');holdTimer=setInterval(()=>{pct=Math.min(100,pct+5);progress.style.width=pct+'%';if(pct>=100){clearInterval(holdTimer);slider.classList.add('valid');openQR();holding=false;}},80)};
+const endHold=()=>{if(holdTimer){clearInterval(holdTimer);}if(!slider.classList.contains('valid')){progress.style.width='0%';}holding=false;};
+thumb.addEventListener('mousedown',startHold);thumb.addEventListener('touchstart',startHold,{passive:true});
+window.addEventListener('mouseup',endHold);window.addEventListener('touchend',endHold);
+const qrModal=document.createElement('div');qrModal.className='qr-modal';qrModal.innerHTML=`<div class=\"qr-content\"><div class=\"qr-title\">Télécharger l’app</div><div class=\"qr-sub\">Scannez le QR code pour installer SummerDating sur mobile</div><img class=\"qr-img\" src=\"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Ftestflight.apple.com%2Fjoin%2FPGSVK8ZC\" alt=\"QR code TestFlight SummerDating\"><a href=\"#\" class=\"qr-close\" id=\"qrClose\">Fermer</a></div>`;document.body.appendChild(qrModal);
+function openQR(){qrModal.style.display='flex';}
+document.addEventListener('click',e=>{if(e.target&&e.target.id==='qrClose'){e.preventDefault();qrModal.style.display='none';}});
+</script>
 </body>
 </html>
