@@ -3,241 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SummerDating - Votre vie sociale commence ici</title>
+    <title>SummerDating — Vivez Paris autrement</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@700,600,500,400&display=swap" rel="stylesheet">
     <style>
+        /* --- Import de la police & Variables de Design "Summer Dating" --- */
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            /* Palette dégradé demandée */
+            --gradient-start: #ff9ccf; /* Rose vif bas-gauche */
+            --gradient-mid: #f6a06b;   /* Pêche haut-droit */
+            --gradient-end: #ffe7ad;   /* Crème douce */
+            
+            --text-primary: #1f1f1f;
+            --text-secondary: #5a5a5a;
+            --color-white: #ffffff;
+            --color-black: #000000;
+            --bubble-bg: rgba(255, 255, 255, 0.45);
+            --bubble-border: rgba(255, 255, 255, 0.6);
+        }
+
+        /* --- Structure & Animations de Base --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-primary);
+            background: linear-gradient(165deg, #FFEFD5 0%, #FFE0E5 20%, #FFD1E9 40%, #FFC2ED 60%, #FFB3E6 80%, #FFA4DC 100%);
+            background-attachment: fixed;
             min-height: 100vh;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 6rem 32px 2rem;
+        }
+
+        /* --- Header Flottant (AMÉLIORÉ) --- */
+        header {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out 0.2s forwards;
+        }
+
+        nav {
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
+            gap: 16px;
+            background-color: rgba(255,255,255,0.5);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255,255,255,0.7);
+            border-radius: 99px;
+            padding: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        
-        .container {
-            max-width: 900px;
-            background: white;
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-        
+
         .logo {
-            font-size: 5em;
-            margin-bottom: 20px;
-            animation: float 3s ease-in-out infinite;
+            font-weight: 700;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 16px;
         }
+        .logo span { font-size: 20px; }
+        .logo-img { height: 96px; width: auto; border-radius: 16px; display: block; box-shadow: 0 8px 24px rgba(0,0,0,0.14); }
+
+        .nav-links { display: flex; list-style: none; position: relative; }
+
+        .nav-links a { position: relative; z-index: 2; text-decoration: none; color: #121212; font-weight: 500; padding: 12px 22px; font-size: 22px; border-radius: 18px; transition: color 0.3s cubic-bezier(0.65, 0, 0.35, 1); white-space: nowrap; font-family: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .nav-links a.is-hovered { color: #000; }
+
+        .nav-highlighter { position: absolute; top: 0; left: 0; height: 100%; width: 0; background-color: rgba(255,255,255,0.7); border-radius: 99px; z-index: 1; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        h1 {
-            color: #667eea;
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        
-        .tagline {
-            color: #666;
-            font-size: 1.3em;
-            margin-bottom: 40px;
-        }
-        
-        .description {
-            font-size: 1.1em;
-            margin-bottom: 40px;
-            line-height: 1.8;
-            text-align: center;
-        }
-        
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-        
-        .button {
-            display: block;
-            padding: 25px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        @media (max-width: 768px) { .lens { display: none; } }
+
+        .nav-actions .login-btn {
+            font-weight: 600;
             text-decoration: none;
-            border-radius: 15px;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            color: var(--text-primary);
+            margin-right: 24px;
         }
-        
-        .button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
+
+        .nav-actions .get-started-btn {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            padding: 10px 20px;
+            border-radius: 99px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        
-        .button-icon {
-            font-size: 2em;
-            display: block;
-            margin-bottom: 10px;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-        
-        .feature {
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 15px;
-        }
-        
-        .feature-icon {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        .feature h3 {
-            color: #667eea;
-            margin-bottom: 5px;
-        }
-        
-        .app-store-badge {
-            display: inline-block;
-            margin: 20px 10px;
-        }
-        
-        .app-store-badge img {
-            height: 60px;
-            transition: transform 0.3s;
-        }
-        
-        .app-store-badge:hover img {
+
+        .nav-actions .get-started-btn:hover {
             transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
+
+        /* --- Contenu Principal (Hero) --- */
+        main { text-align: center; padding: 120px 0 160px; position: relative; }
+        .badge { display: inline-block; padding: 8px 14px; border-radius: 999px; background: #fff; border: 1.5px solid #e6e6e6; color: #777; font-size: 14px; margin-bottom: 18px; }
         
-        footer {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid #ddd;
-            color: #666;
-        }
+        main h1 { font-size: 120px; font-weight: 900; line-height: 0.92; margin-bottom: 30px; letter-spacing: -5px; background: linear-gradient(45deg,#0a0a0a,#2a2a2a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0; animation: fadeInUp 0.6s ease-out 0.4s forwards; }
+        .highlight { background: linear-gradient(135deg,#ff9ccf,#f6a06b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        main p { font-size: 26px; color: #3a3a3a; letter-spacing: -0.3px; max-width: 840px; margin: 0 auto 56px; line-height: 1.5; opacity: 0; animation: fadeInUp 0.6s ease-out 0.6s forwards; }
+
+        /* --- Bouton CTA (COMPLÈTEMENT REFAIT) --- */
+        .hero-cta { display: inline-flex; align-items: center; gap: 16px; background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6)); color: #121212; padding: 8px 8px 8px 28px; border-radius: 99px; text-decoration: none; font-weight: 700; font-size: 18px; border: 1px solid rgba(255,255,255,0.75); box-shadow: 0 12px 30px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.9); transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; margin-bottom: 80px; opacity: 0; animation: fadeInUp 0.6s ease-out 0.8s forwards; will-change: transform; }
+
+        .hero-cta .arrow-icon { display: flex; justify-content: center; align-items: center; width: 44px; height: 44px; background: linear-gradient(135deg,#fff,#f0f0f0); color: #121212; border-radius: 50%; font-size: 20px; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); box-shadow: 0 10px 20px rgba(0,0,0,0.12); }
         
-        footer a {
-            color: #667eea;
-            text-decoration: none;
-            margin: 0 10px;
+        .hero-cta:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(40, 10, 10, 0.2); }
+        .hero-cta:hover .arrow-icon { transform: translateX(8px) rotate(405deg); }
+        .hero-cta:active { transform: scale(0.98); }
+
+        .slider-cta { width: 420px; max-width: 90%; margin: 0 auto 24px; background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.8); border-radius: 999px; box-shadow: 0 12px 30px rgba(0,0,0,0.12); padding: 10px; display: flex; align-items: center; gap: 10px; }
+        .slider-track { position: relative; flex: 1; height: 16px; background: rgba(0,0,0,0.08); border-radius: 999px; overflow: hidden; }
+        .slider-progress { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: linear-gradient(135deg,#ff9ccf,#f6a06b); border-radius: 999px; transition: width 0.08s linear; }
+        .slider-thumb { width: 42px; height: 42px; border-radius: 50%; background: #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+        .slider-label { font-weight: 700; color: #121212; letter-spacing: -0.3px; }
+        .slider-cta.valid { background: rgba(50,205,50,0.85); border-color: rgba(255,255,255,0.9); color: #fff; }
+
+        .qr-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.55); display: none; align-items: center; justify-content: center; z-index: 2000; }
+        .qr-content { background: #fff; border-radius: 20px; padding: 24px; width: 340px; max-width: 90%; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,0.35); }
+        .qr-title { font-family: 'Space Grotesk', sans-serif; font-size: 26px; letter-spacing: -0.5px; margin-bottom: 8px; }
+        .qr-sub { color: #4a4a4a; font-size: 15px; margin-bottom: 16px; }
+        .qr-img { width: 300px; height: 300px; border-radius: 12px; border: 1px solid #eee; }
+        .qr-close { margin-top: 16px; display: inline-block; padding: 10px 16px; border-radius: 999px; background: #000; color: #fff; text-decoration: none; font-weight: 600; }
+
+
+        /* --- Image et Bulles Flottantes (inchangé) --- */
+        .visual-area {
+            position: relative;
+            height: 500px;
+            width: 100%;
         }
+
+        .phone-image {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%) scale(1.12);
+            width: 380px;
+            max-width: none;
+            z-index: 10;
+        }
+
+        .feature-bubble { position: absolute; background: rgba(255,255,255,0.85); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); padding: 12px 20px; border: 1px solid rgba(255,255,255,0.5); border-radius: 99px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.06); font-size: 15px; font-weight: 500; display: flex; align-items: center; gap: 10px; animation: float 10s cubic-bezier(0.45, 0, 0.55, 1) infinite; z-index: 20; will-change: transform; }
         
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .logo {
-                font-size: 3em;
-            }
-            
-            .button-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        #bubble1 { top: 15%; left: 10%; animation-delay: 0s; }
+        #bubble2 { top: 0%; right: 5%; animation-delay: -2.5s; }
+        #bubble3 { top: 40%; right: 8%; animation-delay: -5s; }
+
+        @keyframes float { 0% { transform: translateY(0px) rotate(-2deg); } 50% { transform: translateY(-35px) rotate(2deg); } 100% { transform: translateY(0px) rotate(-2deg); } }
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.on { opacity: 1; transform: translateY(0); }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">🌟</div>
-        <h1>SummerDating</h1>
-        <p class="tagline">Votre vie sociale commence ici 🎉</p>
-        
-        <p class="description">
-            Découvrez les meilleurs événements de Paris et d'Île-de-France. 
-            Connectez-vous avec des personnes qui partagent vos passions. 
-            Vivez pleinement votre ville avec SummerDating !
-        </p>
-        
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">🎭</div>
-                <h3>Événements variés</h3>
-                <p>Culture, musique, sorties...</p>
+
+    <div class="page-wrapper">
+        <header>
+            <nav id="main-nav">
+                <div class="logo"><img src="ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png" alt="SummerDating" class="logo-img" loading="lazy"></div>
+                <ul class="nav-links" id="nav-links">
+                    <span class="nav-highlighter" id="nav-highlighter"></span>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="privacy_policy.html">Confidentialité</a></li>
+                    <li><a href="terms_of_service.html">Conditions</a></li>
+                </ul>
+                
+            </nav>
+        </header>
+
+        <main>
+            
+            <h1>Chaque sortie<br><span class="highlight">est une aventure.</span></h1>
+            <p>Explorez des événements uniques, créez des connexions authentiques et vivez des moments qui restent.</p>
+            
+            <!-- Bouton CTA avec la nouvelle structure HTML -->
+            <div class="slider-cta" id="downloadSlider">
+                <div class="slider-thumb" id="sliderThumb">⇥</div>
+                <div class="slider-track"><div class="slider-progress" id="sliderProgress"></div></div>
+                <div class="slider-label">Maintenir pour télécharger</div>
             </div>
-            
-            <div class="feature">
-                <div class="feature-icon">👥</div>
-                <h3>Connexions</h3>
-                <p>Rencontrez de nouvelles personnes</p>
+
+            <div class="visual-area">
+                <img src="5d31f3f5-6fd8-46fd-b571-37573c93d683%20avec%20arri%C3%A8re-plan%20supprim%C3%A9.png" alt="Application SummerDating sur un téléphone" class="phone-image" loading="lazy">
+                <div class="feature-bubble" id="bubble1">
+                    <span>🎨</span> Événements culturels
+                </div>
+                <div class="feature-bubble" id="bubble2">
+                    <span>🎵</span> Concerts et festivals
+                </div>
+                <div class="feature-bubble" id="bubble3">
+                    <span>👥</span> Rencontrez de nouvelles personnes
+                </div>
             </div>
-            
-            <div class="feature">
-                <div class="feature-icon">📅</div>
-                <h3>Smart Planner</h3>
-                <p>Organisez votre vie sociale</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">💬</div>
-                <h3>Messagerie</h3>
-                <p>Discutez avec votre communauté</p>
-            </div>
-        </div>
-        
-        <div style="margin: 40px 0;">
-            <p style="font-size: 1.2em; color: #667eea; font-weight: bold;">📱 Téléchargez l'application</p>
-            <p style="color: #666; margin: 10px 0;">Bientôt disponible sur l'App Store</p>
-        </div>
-        
-        <div class="button-grid">
-            <a href="support.html" class="button">
-                <span class="button-icon">🛠️</span>
-                Support & FAQ
-            </a>
-            
-            <a href="privacy_policy.html" class="button">
-                <span class="button-icon">🔒</span>
-                Confidentialité
-            </a>
-            
-            <a href="terms_of_service.html" class="button">
-                <span class="button-icon">📜</span>
-                Conditions
-            </a>
-        </div>
-        
-        <footer>
-            <p><strong>SummerDating</strong></p>
-            <p style="margin: 10px 0;">
-                <a href="support.html">Support</a> •
-                <a href="privacy_policy.html">Confidentialité</a> •
-                <a href="terms_of_service.html">Conditions</a> •
-                <a href="mailto:kouassiange744@gmail.com">Contact</a>
-            </p>
-            <p style="margin-top: 20px; font-size: 0.9em;">
-                © 2024 SummerDating. Tous droits réservés.
-            </p>
-        </footer>
+        </main>
     </div>
+
+<script>
+document.addEventListener('scroll',()=>{const s=window.pageYOffset;const p=document.querySelector('.phone-image');if(p){p.style.transform=`translateX(-50%) translateY(${s*0.2}px) scale(1.12)`;}const b1=document.getElementById('bubble1');const b2=document.getElementById('bubble2');const b3=document.getElementById('bubble3');if(b1){b1.style.transform=`translateY(${s*0.15}px)`;}if(b2){b2.style.transform=`translateY(${s*0.3}px)`;}if(b3){b3.style.transform=`translateY(${s*0.45}px)`;}});
+const targets=document.querySelectorAll('.logo, .nav-links a, main h1, main p, .hero-cta, .feature-bubble, .phone-image');targets.forEach(el=>el.classList.add('reveal'));const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');}})},{threshold:0.1});targets.forEach(el=>io.observe(el));
+// Liquid glass highlighter
+const navLinks=document.querySelectorAll('#nav-links a');
+const highlighter=document.getElementById('nav-highlighter');
+const navContainer=document.getElementById('nav-links');
+if(navContainer&&highlighter&&navLinks.length){
+  const moveHighlighter=(target)=>{
+    const linkRect=target.getBoundingClientRect();
+    const navRect=navContainer.getBoundingClientRect();
+    const left=linkRect.left-navRect.left;
+    highlighter.style.width=`${linkRect.width}px`;
+    highlighter.style.transform=`translateX(${left}px)`;
+    navLinks.forEach(a=>a.classList.remove('is-hovered'));
+    target.classList.add('is-hovered');
+  };
+  navLinks.forEach(link=>{
+    link.addEventListener('mouseenter',(e)=>moveHighlighter(e.target));
+  });
+  navContainer.addEventListener('mouseleave',()=>{
+    highlighter.style.width='0';
+    highlighter.style.transform='translateX(0)';
+    navLinks.forEach(a=>a.classList.remove('is-hovered'));
+  });
+}
+
+const slider=document.getElementById('downloadSlider');
+const thumb=document.getElementById('sliderThumb');
+const progress=document.getElementById('sliderProgress');
+let holdTimer=null;let pct=0;let holding=false;
+const startHold=()=>{if(holding)return;holding=true;pct=0;progress.style.width='0%';slider.classList.remove('valid');holdTimer=setInterval(()=>{pct=Math.min(100,pct+5);progress.style.width=pct+'%';if(pct>=100){clearInterval(holdTimer);slider.classList.add('valid');openQR();holding=false;}},80)};
+const endHold=()=>{if(holdTimer){clearInterval(holdTimer);}if(!slider.classList.contains('valid')){progress.style.width='0%';}holding=false;};
+thumb.addEventListener('mousedown',startHold);thumb.addEventListener('touchstart',startHold,{passive:true});
+window.addEventListener('mouseup',endHold);window.addEventListener('touchend',endHold);
+
+const qrModal=document.createElement('div');qrModal.className='qr-modal';qrModal.innerHTML=`<div class="qr-content"><div class="qr-title">Télécharger l’app</div><div class="qr-sub">Scannez le QR code pour installer SummerDating sur mobile</div><img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Ftestflight.apple.com%2Fjoin%2FPGSVK8ZC" alt="QR code TestFlight SummerDating"><a href="#" class="qr-close" id="qrClose">Fermer</a></div>`;document.body.appendChild(qrModal);
+function openQR(){qrModal.style.display='flex';}
+document.addEventListener('click',e=>{if(e.target&&e.target.id==='qrClose'){e.preventDefault();qrModal.style.display='none';}});
+</script>
 </body>
 </html>
