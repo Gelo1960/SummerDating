@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SummerDating — Vivez Paris autrement</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@700,600,500,400&display=swap" rel="stylesheet">
+    <style>
+        /* --- Import de la police & Variables de Design "Summer Dating" --- */
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            /* Palette dégradé demandée */
+            --gradient-start: #ff9ccf;
+            /* Rose vif bas-gauche */
+            --gradient-mid: #f6a06b;
+            /* Pêche haut-droit */
+            --gradient-end: #ffe7ad;
+            /* Crème douce */
+
+            --text-primary: #1f1f1f;
+            --text-secondary: #5a5a5a;
+            --color-white: #ffffff;
+            --color-black: #000000;
+            --bubble-bg: rgba(255, 255, 255, 0.45);
+            --bubble-border: rgba(255, 255, 255, 0.6);
+        }
+
+        /* --- Structure & Animations de Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-primary);
+            background: linear-gradient(165deg, #FFEFD5 0%, #FFE0E5 20%, #FFD1E9 40%, #FFC2ED 60%, #FFB3E6 80%, #FFA4DC 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 6rem 32px 2rem;
+        }
+
+        /* --- Header Flottant (AMÉLIORÉ) --- */
+        header {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out 0.2s forwards;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 99px;
+            padding: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 16px;
+        }
+
+        .logo span {
+            font-size: 20px;
+        }
+
+        .logo-img {
+            height: 96px;
+            width: auto;
+            border-radius: 16px;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            position: relative;
+        }
+
+        .nav-links a {
+            position: relative;
+            z-index: 2;
+            text-decoration: none;
+            color: #121212;
+            font-weight: 500;
+            padding: 12px 22px;
+            font-size: 22px;
+            border-radius: 18px;
+            transition: color 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+            white-space: nowrap;
+            font-family: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .nav-links a.is-hovered {
+            color: #000;
+        }
+
+        .nav-highlighter {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 99px;
+            z-index: 1;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* --- RESPONSIVE DESIGN COMPLET --- */
+
+        /* Tablettes */
+        @media (max-width: 1024px) {
+            .page-wrapper {
+                padding: 5rem 24px 2rem;
+            }
+
+            main h1 {
+                font-size: 80px;
+                letter-spacing: -3px;
+            }
+
+            main p {
+                font-size: 22px;
+            }
+
+            .visual-area {
+                height: 400px;
+            }
+
+            .phone-image {
+                width: 320px;
+            }
+        }
+
+        /* Mobile - Paysage et grands téléphones */
+        @media (max-width: 768px) {
+            .lens {
+                display: none;
+            }
+
+            header {
+                top: 12px;
+                left: 12px;
+                right: 12px;
+                transform: none;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px;
+                border-radius: 24px;
+            }
+
+            .logo {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .logo-img {
+                height: 60px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 4px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+                padding: 10px 14px;
+                border-radius: 12px;
+            }
+
+            .nav-highlighter {
+                display: none;
+            }
+
+            .page-wrapper {
+                padding: 10rem 16px 2rem;
+            }
+
+            main {
+                padding: 60px 0 100px;
+            }
+
+            main h1 {
+                font-size: 48px;
+                letter-spacing: -2px;
+                line-height: 1;
+                margin-bottom: 20px;
+            }
+
+            main p {
+                font-size: 18px;
+                margin-bottom: 32px;
+                padding: 0 8px;
+            }
+
+            .hero-cta {
+                padding: 6px 6px 6px 20px;
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+
+            .hero-cta .arrow-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+            }
+
+            .slider-cta {
+                width: 100%;
+                max-width: 340px;
+            }
+
+            .slider-label {
+                font-size: 14px;
+            }
+
+            .slider-thumb {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+
+            .visual-area {
+                height: 350px;
+            }
+
+            .phone-image {
+                width: 280px;
+            }
+
+            .feature-bubble {
+                font-size: 13px;
+                padding: 10px 14px;
+                gap: 8px;
+            }
+
+            #bubble1 {
+                top: 5%;
+                left: 5%;
+            }
+
+            #bubble2 {
+                top: 0%;
+                right: 2%;
+            }
+
+            #bubble3 {
+                top: 35%;
+                right: 3%;
+            }
+        }
+
+        /* Mobile - Portrait (petits écrans) */
+        @media (max-width: 480px) {
+            header {
+                top: 8px;
+                left: 8px;
+                right: 8px;
+            }
+
+            nav {
+                padding: 10px;
+                gap: 10px;
+            }
+
+            .logo-img {
+                height: 50px;
+            }
+
+            .nav-links {
+                gap: 2px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+
+            .page-wrapper {
+                padding: 9rem 12px 1.5rem;
+            }
+
+            main {
+                padding: 40px 0 60px;
+            }
+
+            main h1 {
+                font-size: 36px;
+                letter-spacing: -1.5px;
+                margin-bottom: 16px;
+            }
+
+            main p {
+                font-size: 16px;
+                line-height: 1.5;
+                margin-bottom: 28px;
+            }
+
+            .hero-cta {
+                padding: 5px 5px 5px 16px;
+                font-size: 14px;
+                gap: 12px;
+                margin-bottom: 32px;
+            }
+
+            .hero-cta .arrow-icon {
+                width: 34px;
+                height: 34px;
+                font-size: 16px;
+            }
+
+            .slider-cta {
+                max-width: 300px;
+                padding: 8px;
+            }
+
+            .slider-label {
+                font-size: 12px;
+            }
+
+            .slider-thumb {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+
+            .slider-track {
+                height: 12px;
+            }
+
+            .visual-area {
+                height: 300px;
+            }
+
+            .phone-image {
+                width: 220px;
+                bottom: 0;
+            }
+
+            .feature-bubble {
+                font-size: 11px;
+                padding: 8px 12px;
+                gap: 6px;
+            }
+
+            #bubble1 {
+                top: 8%;
+                left: 2%;
+            }
+
+            #bubble2 {
+                top: 2%;
+                right: 0%;
+                font-size: 10px;
+                padding: 6px 10px;
+            }
+
+            #bubble3 {
+                top: 40%;
+                right: 0%;
+                font-size: 10px;
+                padding: 6px 10px;
+            }
+
+            .qr-content {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .qr-title {
+                font-size: 22px;
+            }
+
+            .qr-sub {
+                font-size: 14px;
+            }
+
+            .qr-img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* Très petits écrans (iPhone SE, etc.) */
+        @media (max-width: 375px) {
+            .nav-links a {
+                font-size: 11px;
+                padding: 6px 8px;
+            }
+
+            main h1 {
+                font-size: 32px;
+            }
+
+            main p {
+                font-size: 15px;
+            }
+
+            .phone-image {
+                width: 200px;
+            }
+
+            .feature-bubble {
+                display: none;
+            }
+
+            .visual-area {
+                height: 250px;
+            }
+        }
+
+        .nav-actions .login-btn {
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-primary);
+            margin-right: 24px;
+        }
+
+        .nav-actions .get-started-btn {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            padding: 10px 20px;
+            border-radius: 99px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-actions .get-started-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Contenu Principal (Hero) --- */
+        main {
+            text-align: center;
+            padding: 120px 0 160px;
+            position: relative;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1.5px solid #e6e6e6;
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        main h1 {
+            font-size: 120px;
+            font-weight: 900;
+            line-height: 0.92;
+            margin-bottom: 30px;
+            letter-spacing: -5px;
+            background: linear-gradient(45deg, #0a0a0a, #2a2a2a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out 0.4s forwards;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ff9ccf, #f6a06b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        main p {
+            font-size: 26px;
+            color: #3a3a3a;
+            letter-spacing: -0.3px;
+            max-width: 840px;
+            margin: 0 auto 56px;
+            line-height: 1.5;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out 0.6s forwards;
+        }
+
+        /* --- Bouton CTA (COMPLÈTEMENT REFAIT) --- */
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6));
+            color: #121212;
+            padding: 8px 8px 8px 28px;
+            border-radius: 99px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+            margin-bottom: 80px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out 0.8s forwards;
+            will-change: transform;
+        }
+
+        .hero-cta .arrow-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #fff, #f0f0f0);
+            color: #121212;
+            border-radius: 50%;
+            font-size: 20px;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(40, 10, 10, 0.2);
+        }
+
+        .hero-cta:hover .arrow-icon {
+            transform: translateX(8px) rotate(405deg);
+        }
+
+        .hero-cta:active {
+            transform: scale(0.98);
+        }
+
+        .slider-cta {
+            width: 420px;
+            max-width: 90%;
+            margin: 0 auto 24px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 999px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .slider-track {
+            position: relative;
+            flex: 1;
+            height: 16px;
+            background: rgba(0, 0, 0, 0.08);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .slider-progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(135deg, #ff9ccf, #f6a06b);
+            border-radius: 999px;
+            transition: width 0.08s linear;
+        }
+
+        .slider-thumb {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .slider-label {
+            font-weight: 700;
+            color: #121212;
+            letter-spacing: -0.3px;
+        }
+
+        .slider-cta.valid {
+            background: rgba(50, 205, 50, 0.85);
+            border-color: rgba(255, 255, 255, 0.9);
+            color: #fff;
+        }
+
+        .qr-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .qr-content {
+            background: #fff;
+            border-radius: 20px;
+            padding: 24px;
+            width: 340px;
+            max-width: 90%;
+            text-align: center;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        .qr-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 26px;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .qr-sub {
+            color: #4a4a4a;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .qr-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+        }
+
+        .qr-close {
+            margin-top: 16px;
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+
+        /* --- Image et Bulles Flottantes (inchangé) --- */
+        .visual-area {
+            position: relative;
+            height: 500px;
+            width: 100%;
+        }
+
+        .phone-image {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%) scale(1.12);
+            width: 380px;
+            max-width: none;
+            z-index: 10;
+        }
+
+        .feature-bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            padding: 12px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 99px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.06);
+            font-size: 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: float 10s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+            z-index: 20;
+            will-change: transform;
+        }
+
+        #bubble1 {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        #bubble2 {
+            top: 0%;
+            right: 5%;
+            animation-delay: -2.5s;
+        }
+
+        #bubble3 {
+            top: 40%;
+            right: 8%;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(-2deg);
+            }
+
+            50% {
+                transform: translateY(-35px) rotate(2deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotate(-2deg);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.on {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+        <header>
+            <nav id="main-nav">
+                <div class="logo"><img src="ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png" alt="SummerDating"
+                        class="logo-img" loading="lazy"></div>
+                <ul class="nav-links" id="nav-links">
+                    <span class="nav-highlighter" id="nav-highlighter"></span>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="privacy_policy.html">Confidentialité</a></li>
+                    <li><a href="terms_of_service.html">Conditions</a></li>
+                </ul>
+
+            </nav>
+        </header>
+
+        <main>
+
+            <h1>Chaque sortie<br><span class="highlight">est une aventure.</span></h1>
+            <p>Explorez des événements uniques, créez des connexions authentiques et vivez des moments qui restent.</p>
+
+            <!-- Bouton CTA avec la nouvelle structure HTML -->
+            <div class="slider-cta" id="downloadSlider">
+                <div class="slider-thumb" id="sliderThumb">⇥</div>
+                <div class="slider-track">
+                    <div class="slider-progress" id="sliderProgress"></div>
+                </div>
+                <div class="slider-label">Maintenir pour télécharger</div>
+            </div>
+
+            <div class="visual-area">
+                <img src="imagedemain.png" alt="Application SummerDating sur un téléphone" class="phone-image"
+                    loading="lazy">
+                <div class="feature-bubble" id="bubble1">
+                    <span>🎨</span> Événements culturels
+                </div>
+                <div class="feature-bubble" id="bubble2">
+                    <span>🎵</span> Concerts et festivals
+                </div>
+                <div class="feature-bubble" id="bubble3">
+                    <span>👥</span> Rencontrez de nouvelles personnes
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('scroll', () => { const s = window.pageYOffset; const p = document.querySelector('.phone-image'); if (p) { p.style.transform = `translateX(-50%) translateY(${s * 0.2}px) scale(1.12)`; } const b1 = document.getElementById('bubble1'); const b2 = document.getElementById('bubble2'); const b3 = document.getElementById('bubble3'); if (b1) { b1.style.transform = `translateY(${s * 0.15}px)`; } if (b2) { b2.style.transform = `translateY(${s * 0.3}px)`; } if (b3) { b3.style.transform = `translateY(${s * 0.45}px)`; } });
+        const targets = document.querySelectorAll('.logo, .nav-links a, main h1, main p, .hero-cta, .feature-bubble, .phone-image'); targets.forEach(el => el.classList.add('reveal')); const io = new IntersectionObserver(e => { e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('on'); } }) }, { threshold: 0.1 }); targets.forEach(el => io.observe(el));
+        // Liquid glass highlighter
+        const navLinks = document.querySelectorAll('#nav-links a');
+        const highlighter = document.getElementById('nav-highlighter');
+        const navContainer = document.getElementById('nav-links');
+        if (navContainer && highlighter && navLinks.length) {
+            const moveHighlighter = (target) => {
+                const linkRect = target.getBoundingClientRect();
+                const navRect = navContainer.getBoundingClientRect();
+                const left = linkRect.left - navRect.left;
+                highlighter.style.width = `${linkRect.width}px`;
+                highlighter.style.transform = `translateX(${left}px)`;
+                navLinks.forEach(a => a.classList.remove('is-hovered'));
+                target.classList.add('is-hovered');
+            };
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', (e) => moveHighlighter(e.target));
+            });
+            navContainer.addEventListener('mouseleave', () => {
+                highlighter.style.width = '0';
+                highlighter.style.transform = 'translateX(0)';
+                navLinks.forEach(a => a.classList.remove('is-hovered'));
+            });
+        }
+
+        const slider = document.getElementById('downloadSlider');
+        const thumb = document.getElementById('sliderThumb');
+        const progress = document.getElementById('sliderProgress');
+        let holdTimer = null; let pct = 0; let holding = false;
+        const startHold = () => { if (holding) return; holding = true; pct = 0; progress.style.width = '0%'; slider.classList.remove('valid'); holdTimer = setInterval(() => { pct = Math.min(100, pct + 5); progress.style.width = pct + '%'; if (pct >= 100) { clearInterval(holdTimer); slider.classList.add('valid'); openQR(); holding = false; } }, 80) };
+        const endHold = () => { if (holdTimer) { clearInterval(holdTimer); } if (!slider.classList.contains('valid')) { progress.style.width = '0%'; } holding = false; };
+        thumb.addEventListener('mousedown', startHold); thumb.addEventListener('touchstart', startHold, { passive: true });
+        window.addEventListener('mouseup', endHold); window.addEventListener('touchend', endHold);
+
+        const qrModal = document.createElement('div'); qrModal.className = 'qr-modal'; qrModal.innerHTML = `<div class="qr-content"><div class="qr-title">Télécharger l’app</div><div class="qr-sub">Scannez le QR code pour installer SummerDating sur mobile</div><img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Ftestflight.apple.com%2Fjoin%2FPGSVK8ZC" alt="QR code TestFlight SummerDating"><a href="#" class="qr-close" id="qrClose">Fermer</a></div>`; document.body.appendChild(qrModal);
+        function openQR() { qrModal.style.display = 'flex'; }
+        document.addEventListener('click', e => { if (e.target && e.target.id === 'qrClose') { e.preventDefault(); qrModal.style.display = 'none'; } });
+    </script>
+</body>
+
+</html>
