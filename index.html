@@ -4,7 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SummerDating — Vivez Paris autrement</title>
+
+    <!-- SEO Meta Tags -->
+    <title>Summer Dating — Découvrez des événements uniques à Paris | App de rencontres et sorties</title>
+    <meta name="description"
+        content="Summer Dating transforme votre quotidien ! Explorez des événements culturels, concerts et festivals à Paris. Créez des connexions authentiques et vivez des moments inoubliables. Téléchargez gratuitement sur l'App Store.">
+    <meta name="keywords"
+        content="summer dating, rencontres paris, événements paris, sorties culturelles, concerts paris, festivals, app rencontre, dating app, rencontres authentiques, sorties entre amis, événements culturels paris">
+    <meta name="author" content="Kouassi Ange Yao">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ff9ccf">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://summer-dating.vercel.app/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://summer-dating.vercel.app/">
+    <meta property="og:title" content="Summer Dating — Découvrez des événements uniques à Paris">
+    <meta property="og:description"
+        content="Explorez des événements culturels, concerts et festivals. Créez des connexions authentiques et vivez des moments qui restent. Gratuit sur l'App Store.">
+    <meta property="og:image" content="https://summer-dating.vercel.app/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Summer Dating">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://summer-dating.vercel.app/">
+    <meta name="twitter:title" content="Summer Dating — Découvrez des événements uniques à Paris">
+    <meta name="twitter:description"
+        content="Explorez des événements culturels, concerts et festivals. Créez des connexions authentiques et vivez des moments qui restent.">
+    <meta name="twitter:image" content="https://summer-dating.vercel.app/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png">
+
+    <!-- Apple Smart App Banner -->
+    <meta name="apple-itunes-app" content="app-id=6753696473">
+    <meta name="application-name" content="Summer Dating">
+    <meta name="apple-mobile-web-app-title" content="Summer Dating">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <!-- Favicon (si disponible) -->
+    <link rel="icon" type="image/png" href="ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png">
+    <link rel="apple-touch-icon" href="ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "Summer Dating",
+        "operatingSystem": "iOS",
+        "applicationCategory": "SocialNetworkingApplication",
+        "description": "Summer Dating transforme votre quotidien ! Explorez des événements culturels, concerts et festivals à Paris. Créez des connexions authentiques et vivez des moments inoubliables.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "ratingCount": "1"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Kouassi Ange Yao"
+        },
+        "downloadUrl": "https://apps.apple.com/fr/app/summer-dating/id6753696473",
+        "installUrl": "https://apps.apple.com/fr/app/summer-dating/id6753696473",
+        "screenshot": "https://summer-dating.vercel.app/imagedemain.png",
+        "softwareVersion": "1.0",
+        "contentRating": "4+"
+    }
+    </script>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@700,600,500,400&display=swap" rel="stylesheet">
     <style>
         /* --- Import de la police & Variables de Design "Summer Dating" --- */
@@ -848,7 +926,7 @@
         thumb.addEventListener('mousedown', startHold); thumb.addEventListener('touchstart', startHold, { passive: true });
         window.addEventListener('mouseup', endHold); window.addEventListener('touchend', endHold);
 
-        const qrModal = document.createElement('div'); qrModal.className = 'qr-modal'; qrModal.innerHTML = `<div class="qr-content"><div class="qr-title">Télécharger l’app</div><div class="qr-sub">Scannez le QR code pour installer SummerDating sur mobile</div><img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Ftestflight.apple.com%2Fjoin%2FPGSVK8ZC" alt="QR code TestFlight SummerDating"><a href="#" class="qr-close" id="qrClose">Fermer</a></div>`; document.body.appendChild(qrModal);
+        const qrModal = document.createElement('div'); qrModal.className = 'qr-modal'; qrModal.innerHTML = `<div class="qr-content"><div class="qr-title">Télécharger l'app</div><div class="qr-sub">Scannez le QR code pour télécharger Summer Dating sur l'App Store</div><img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fapps.apple.com%2Ffr%2Fapp%2Fsummer-dating%2Fid6753696473" alt="QR code pour télécharger Summer Dating sur l'App Store"><a href="https://apps.apple.com/fr/app/summer-dating/id6753696473" class="qr-close" target="_blank" rel="noopener">Ouvrir l'App Store</a><a href="#" class="qr-close" id="qrClose" style="background:#666;margin-left:8px;">Fermer</a></div>`; document.body.appendChild(qrModal);
         function openQR() { qrModal.style.display = 'flex'; }
         document.addEventListener('click', e => { if (e.target && e.target.id === 'qrClose') { e.preventDefault(); qrModal.style.display = 'none'; } });
     </script>
