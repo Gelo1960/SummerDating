@@ -67,17 +67,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* --- iPhone Carousel: auto-sliding screenshots --- */
-    const carousel = document.querySelector('.phone-carousel');
+    /* --- iPhone Coverflow Carousel --- */
+    const showcase = document.querySelector('.phones-showcase');
     const dotsContainer = document.querySelector('.carousel-dots');
 
-    if (carousel && dotsContainer) {
-        const slides = carousel.querySelectorAll('.carousel-slide');
+    if (showcase && dotsContainer) {
+        const items = showcase.querySelectorAll('.phone-item');
+        const total = items.length;
         let current = 0;
         let interval;
 
+        /* Position map: offset from center → CSS data-pos */
+        const positions = {
+            '-2': 'far-left',
+            '-1': 'left',
+            '0': 'center',
+            '1': 'right',
+            '2': 'far-right'
+        };
+
         /* Create dots */
-        slides.forEach((_, i) => {
+        items.forEach((_, i) => {
             const dot = document.createElement('button');
             dot.classList.add('carousel-dot');
             if (i === 0) dot.classList.add('active');
@@ -86,71 +96,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const dots = dotsContainer.querySelectorAll('.carousel-dot');
-        let isAnimating = false;
 
-        function slideTo(index, direction) {
-            if (isAnimating || index === current) return;
-            isAnimating = true;
+        function updatePositions() {
+            items.forEach((item, i) => {
+                let offset = i - current;
 
-            const prev = current;
-            const exitClass = direction === 'left' ? 'exit-left' : 'exit-right';
-            const enterClass = direction === 'left' ? 'enter-right' : 'enter-left';
+                /* Wrap around for circular effect */
+                if (offset > Math.floor(total / 2)) offset -= total;
+                if (offset < -Math.floor(total / 2)) offset += total;
 
-            /* Position new slide off-screen */
-            slides[index].classList.remove('active', 'exit-left', 'exit-right');
-            slides[index].classList.add(enterClass);
-
-            /* Force reflow so the browser registers the start position */
-            void slides[index].offsetWidth;
-
-            /* Remove enter class and add active — triggers the slide-in */
-            slides[index].classList.remove(enterClass);
-            slides[index].classList.add('active');
-
-            /* Slide out current */
-            slides[prev].classList.remove('active');
-            slides[prev].classList.add(exitClass);
+                const pos = positions[String(offset)] || 'hidden';
+                item.setAttribute('data-pos', pos);
+            });
 
             /* Update dots */
-            dots[prev].classList.remove('active');
-            dots[index].classList.add('active');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === current);
+            });
+        }
 
-            current = index;
-
-            /* Clean up after transition */
-            setTimeout(() => {
-                slides[prev].classList.remove(exitClass);
-                isAnimating = false;
-            }, 580);
+        function goTo(index) {
+            current = ((index % total) + total) % total;
+            updatePositions();
         }
 
         function next() {
-            slideTo((current + 1) % slides.length, 'left');
+            goTo(current + 1);
         }
 
         function prev() {
-            slideTo((current - 1 + slides.length) % slides.length, 'right');
+            goTo(current - 1);
         }
 
         function startAutoplay() {
-            interval = setInterval(next, 3000);
+            stopAutoplay();
+            interval = setInterval(next, 3500);
         }
 
         function stopAutoplay() {
             clearInterval(interval);
         }
 
+        /* Initialize positions */
+        updatePositions();
+
         /* Dot clicks */
         dots.forEach((dot, i) => {
             dot.addEventListener('click', () => {
                 stopAutoplay();
-                slideTo(i, i > current ? 'left' : 'right');
+                goTo(i);
                 startAutoplay();
             });
         });
 
+        /* Click on side phones to navigate */
+        items.forEach((item, i) => {
+            item.addEventListener('click', () => {
+                if (i !== current) {
+                    stopAutoplay();
+                    goTo(i);
+                    startAutoplay();
+                }
+            });
+        });
+
         /* Start autoplay when visible */
-        const carouselObserver = new IntersectionObserver((entries) => {
+        const coverflowObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     startAutoplay();
@@ -158,31 +169,35 @@ document.addEventListener('DOMContentLoaded', () => {
                     stopAutoplay();
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.2 });
 
-        carouselObserver.observe(carousel);
+        coverflowObserver.observe(showcase);
 
-        /* Pause on hover/touch */
-        carousel.addEventListener('mouseenter', stopAutoplay);
-        carousel.addEventListener('mouseleave', startAutoplay);
+        /* Pause on hover */
+        showcase.addEventListener('mouseenter', stopAutoplay);
+        showcase.addEventListener('mouseleave', startAutoplay);
 
-        /* Swipe support on center phone */
+        /* Swipe support */
         let touchStartX = 0;
-        carousel.addEventListener('touchstart', (e) => {
+        showcase.addEventListener('touchstart', (e) => {
             stopAutoplay();
             touchStartX = e.changedTouches[0].screenX;
         }, { passive: true });
 
-        carousel.addEventListener('touchend', (e) => {
+        showcase.addEventListener('touchend', (e) => {
             const diff = touchStartX - e.changedTouches[0].screenX;
             if (Math.abs(diff) > 40) {
-                if (diff > 0) {
-                    next();
-                } else {
-                    prev();
-                }
+                if (diff > 0) next();
+                else prev();
             }
             startAutoplay();
+        });
+
+        /* Keyboard navigation */
+        showcase.setAttribute('tabindex', '0');
+        showcase.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') { next(); stopAutoplay(); startAutoplay(); }
+            if (e.key === 'ArrowLeft') { prev(); stopAutoplay(); startAutoplay(); }
         });
     }
 

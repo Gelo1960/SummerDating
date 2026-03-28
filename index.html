@@ -232,62 +232,78 @@
             </div>
         </section>
 
-        <!-- Section: Screenshots — iPhone Showcase -->
+        <!-- Section: Screenshots — iPhone Coverflow -->
         <section class="screenshots" id="sec-app">
             <div class="page-wrapper">
 
                 <div class="phones-showcase" role="region" aria-label="Galerie de captures d'écran de l'application">
-                    <!-- Left side phones -->
-                    <div class="side-phone side-left-far">
-                        <div class="phone-frame">
+                    <div class="phone-item" data-label="Ton feed">
+                        <div class="phone-frame"><div class="phone-notch"></div>
                             <div class="phone-screen">
-                                <img src="imagesapp/screen-carte-clusters.PNG" alt="Carte avec clusters de lieux" loading="lazy">
+                                <img src="imagesapp/screen-feed.PNG" alt="Feed principal avec lieux et météo" loading="lazy">
                             </div>
                         </div>
                     </div>
-                    <div class="side-phone side-left">
-                        <div class="phone-frame">
+                    <div class="phone-item" data-label="Sorties">
+                        <div class="phone-frame"><div class="phone-notch"></div>
                             <div class="phone-screen">
                                 <img src="imagesapp/screen-sorties.PNG" alt="Liste des sorties" loading="lazy">
                             </div>
                         </div>
                     </div>
-
-                    <!-- Center phone with carousel -->
-                    <div class="center-phone">
-                        <div class="phone-frame">
-                            <div class="phone-notch"></div>
+                    <div class="phone-item" data-label="Découverte">
+                        <div class="phone-frame"><div class="phone-notch"></div>
                             <div class="phone-screen">
-                                <div class="phone-carousel">
-                                    <img src="imagesapp/screen-feed.PNG" alt="Feed principal" class="carousel-slide active" loading="lazy">
-                                    <img src="imagesapp/screen-decouverte.PNG" alt="Découverte de profils" class="carousel-slide" loading="lazy">
-                                    <img src="imagesapp/screen-carte.PNG" alt="Carte de Paris" class="carousel-slide" loading="lazy">
-                                    <img src="imagesapp/screen-navigation.PNG" alt="Navigation GPS" class="carousel-slide" loading="lazy">
-                                    <img src="imagesapp/screen-lieu.PNG" alt="Détail d'un lieu" class="carousel-slide" loading="lazy">
-                                    <img src="imagesapp/screen-carte-globe.PNG" alt="Vue globe" class="carousel-slide" loading="lazy">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Carousel dots -->
-                        <div class="carousel-dots" aria-label="Indicateurs de slide"></div>
-                    </div>
-
-                    <!-- Right side phones -->
-                    <div class="side-phone side-right">
-                        <div class="phone-frame">
-                            <div class="phone-screen">
-                                <img src="imagesapp/screen-carte-large.PNG" alt="Carte Europe" loading="lazy">
+                                <img src="imagesapp/screen-decouverte.PNG" alt="Découverte de profils" loading="lazy">
                             </div>
                         </div>
                     </div>
-                    <div class="side-phone side-right-far">
-                        <div class="phone-frame">
+                    <div class="phone-item" data-label="Détail lieu">
+                        <div class="phone-frame"><div class="phone-notch"></div>
                             <div class="phone-screen">
-                                <img src="imagesapp/screen-carte-europe.PNG" alt="Vue France" loading="lazy">
+                                <img src="imagesapp/screen-lieu.PNG" alt="Fiche détaillée d'un lieu" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-item" data-label="Carte">
+                        <div class="phone-frame"><div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <img src="imagesapp/screen-carte.PNG" alt="Carte interactive de Paris" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-item" data-label="Lieux proches">
+                        <div class="phone-frame"><div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <img src="imagesapp/screen-carte-clusters.PNG" alt="Clusters de lieux" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-item" data-label="Europe">
+                        <div class="phone-frame"><div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <img src="imagesapp/screen-carte-large.PNG" alt="Vue Europe" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-item" data-label="Navigation">
+                        <div class="phone-frame"><div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <img src="imagesapp/screen-navigation.PNG" alt="Navigation GPS" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-item" data-label="Globe">
+                        <div class="phone-frame"><div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <img src="imagesapp/screen-carte-globe.PNG" alt="Vue globe mondiale" loading="lazy">
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Carousel dots -->
+                <div class="carousel-dots" aria-label="Indicateurs de slide"></div>
 
                 <h2 class="section-title reveal">Découvre l'app</h2>
                 <p class="section-description reveal">Un aperçu de ce qui t'attend sur Summer Dating.</p>
