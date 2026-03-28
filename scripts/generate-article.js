@@ -11,10 +11,9 @@ const deepseek = new OpenAI({
   baseURL: config.deepseek.baseURL,
 });
 
-// === Claude Client ===
-const anthropic = new Anthropic({
-  apiKey: config.claude.apiKey,
-});
+// === Claude Client (optionnel — skip polish si pas d'API key) ===
+const hasClaudeKey = !!config.claude.apiKey;
+const anthropic = hasClaudeKey ? new Anthropic({ apiKey: config.claude.apiKey }) : null;
 
 /**
  * ÉTAPE 1 : Draft avec DeepSeek
@@ -138,10 +137,16 @@ Réponds UNIQUEMENT avec le JSON amélioré (même format que l'input), sans mar
 }
 
 /**
- * Pipeline complet : brief → draft → polish
+ * Pipeline complet : brief → draft → polish (si Claude dispo)
  */
 async function generateArticle(brief) {
   const draft = await generateDraft(brief);
+
+  if (!hasClaudeKey) {
+    console.log("\n⚠️  ANTHROPIC_API_KEY non configurée — skip polish, utilisation du draft direct");
+    return draft;
+  }
+
   const polished = await polishWithClaude(draft, brief);
   return polished;
 }

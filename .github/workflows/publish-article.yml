@@ -37,7 +37,6 @@ jobs:
       - name: 🚀 Run SEO Buzz Pipeline v2
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           APIFY_API_TOKEN: ${{ secrets.APIFY_API_TOKEN }}
           CI: true
         run: npm run pipeline

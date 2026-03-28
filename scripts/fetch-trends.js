@@ -56,8 +56,14 @@ async function fetchTwitterTrends() {
       }
     );
 
-    const trends = await runResponse.json();
-    const items = (trends || []).slice(0, 30).map((t) => ({
+    const rawData = await runResponse.json();
+    // Apify peut retourner un tableau ou un objet { data: [...] }
+    const trends = Array.isArray(rawData) ? rawData : (rawData?.data || rawData?.items || []);
+    if (!Array.isArray(trends)) {
+      console.warn("   ⚠️  Twitter: réponse inattendue (pas un tableau)");
+      return [];
+    }
+    const items = trends.slice(0, 30).map((t) => ({
       title: t.name || t.trend || t.title,
       source: "twitter",
       volume: t.tweet_volume || t.tweetVolume || "unknown",
