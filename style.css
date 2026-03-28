@@ -578,61 +578,193 @@ section {
 }
 
 /* ================================================
-   SCREENSHOTS GALLERY
+   SCREENSHOTS — iPHONE SHOWCASE
    ================================================ */
 
 .screenshots {
     text-align: center;
     overflow: hidden;
+    padding: 60px 0 100px;
+}
+
+.screenshots .section-title {
+    margin-top: 48px;
 }
 
 .screenshots .section-description {
-    margin-bottom: 48px;
+    margin-bottom: 0;
 }
 
-.screenshots-track {
+/* --- Phones layout --- */
+
+.phones-showcase {
     display: flex;
-    gap: 24px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0 32px 24px;
-    scrollbar-width: none;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: clamp(420px, 50vw, 620px);
+    margin-bottom: 16px;
 }
 
-.screenshots-track::-webkit-scrollbar {
-    display: none;
+/* --- iPhone Frame (CSS only) --- */
+
+.phone-frame {
+    position: relative;
+    background: #1a1a1a;
+    border-radius: 44px;
+    padding: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
-.screenshot-card {
-    flex: 0 0 auto;
-    width: clamp(200px, 28vw, 260px);
-    scroll-snap-align: center;
-    border-radius: 24px;
+.phone-screen {
+    border-radius: 36px;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    position: relative;
+    background: #000;
 }
 
-.screenshot-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-}
-
-.screenshot-card img {
+.phone-screen img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.screenshot-label {
-    display: block;
-    padding: 12px 0;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-secondary);
+/* --- Dynamic Island (center phone only) --- */
+
+.phone-notch {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 72px;
+    height: 22px;
+    background: #1a1a1a;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+/* --- Center Phone --- */
+
+.center-phone {
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.center-phone .phone-frame {
+    width: clamp(220px, 22vw, 280px);
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+        0 0 100px rgba(255, 156, 207, 0.1);
+}
+
+/* --- Carousel --- */
+
+.phone-carousel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+/* --- Carousel Dots --- */
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.15);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.carousel-dot.active {
+    background: var(--gradient-start);
+    transform: scale(1.3);
+}
+
+/* --- Side Phones --- */
+
+.side-phone {
+    position: absolute;
+    z-index: 5;
+}
+
+.side-phone .phone-frame {
+    width: clamp(160px, 16vw, 210px);
+    opacity: 0.85;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.12);
+}
+
+.side-phone .phone-screen {
+    aspect-ratio: 9 / 19.5;
+}
+
+.side-phone .phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Left phones */
+.side-left {
+    left: clamp(8%, 12vw, 18%);
+    top: 50%;
+    transform: translateY(-50%) rotate(-4deg);
+}
+
+.side-left-far {
+    left: clamp(-2%, 1vw, 4%);
+    top: 50%;
+    transform: translateY(-50%) rotate(-8deg);
+}
+
+.side-left-far .phone-frame {
+    width: clamp(130px, 13vw, 170px);
+    opacity: 0.55;
+}
+
+/* Right phones */
+.side-right {
+    right: clamp(8%, 12vw, 18%);
+    top: 50%;
+    transform: translateY(-50%) rotate(4deg);
+}
+
+.side-right-far {
+    right: clamp(-2%, 1vw, 4%);
+    top: 50%;
+    transform: translateY(-50%) rotate(8deg);
+}
+
+.side-right-far .phone-frame {
+    width: clamp(130px, 13vw, 170px);
+    opacity: 0.55;
 }
 
 /* ================================================
@@ -1227,20 +1359,61 @@ footer {
         font-size: 14px;
     }
 
-    /* --- Screenshots: larger on mobile, center focus --- */
-    .screenshot-card {
+    /* --- iPhone Showcase: mobile --- */
+    .phones-showcase {
+        height: 380px;
+    }
+
+    .center-phone .phone-frame {
         width: 200px;
-        border-radius: 20px;
     }
 
-    .screenshots-track {
-        gap: 14px;
-        padding: 0 20px 20px;
+    .phone-frame {
+        border-radius: 32px;
+        padding: 8px;
     }
 
-    .screenshot-label {
-        padding: 10px 0;
-        font-size: 12px;
+    .phone-screen {
+        border-radius: 26px;
+    }
+
+    .phone-notch {
+        width: 56px;
+        height: 18px;
+        top: 12px;
+    }
+
+    .side-left-far,
+    .side-right-far {
+        display: none;
+    }
+
+    .side-left {
+        left: -4%;
+        transform: translateY(-50%) rotate(-6deg);
+    }
+
+    .side-right {
+        right: -4%;
+        transform: translateY(-50%) rotate(6deg);
+    }
+
+    .side-phone .phone-frame {
+        width: 140px;
+        opacity: 0.6;
+    }
+
+    .carousel-dots {
+        margin-top: 14px;
+    }
+
+    .carousel-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .screenshots .section-title {
+        margin-top: 28px;
     }
 
     /* --- Video: full width mobile --- */
@@ -1332,8 +1505,31 @@ footer {
         width: 220px;
     }
 
-    .screenshot-card {
+    .phones-showcase {
+        height: 320px;
+    }
+
+    .center-phone .phone-frame {
         width: 170px;
+    }
+
+    .side-phone .phone-frame {
+        width: 120px;
+    }
+
+    .phone-frame {
+        border-radius: 28px;
+        padding: 6px;
+    }
+
+    .phone-screen {
+        border-radius: 23px;
+    }
+
+    .phone-notch {
+        width: 48px;
+        height: 15px;
+        top: 10px;
     }
 
     .proof-grid {

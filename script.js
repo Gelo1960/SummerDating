@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* --- Screenshots & cards horizontal drag scroll --- */
-    document.querySelectorAll('.screenshots-track, .steps-grid, .features-grid').forEach(track => {
+    /* --- Horizontal drag scroll for cards --- */
+    document.querySelectorAll('.steps-grid, .features-grid').forEach(track => {
         let isDown = false;
         let startX;
         let scrollLeft;
@@ -66,6 +66,89 @@ document.addEventListener('DOMContentLoaded', () => {
             track.scrollLeft = scrollLeft - walk;
         });
     });
+
+    /* --- iPhone Carousel: auto-sliding screenshots --- */
+    const carousel = document.querySelector('.phone-carousel');
+    const dotsContainer = document.querySelector('.carousel-dots');
+
+    if (carousel && dotsContainer) {
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        let current = 0;
+        let interval;
+
+        /* Create dots */
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.classList.add('carousel-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.setAttribute('aria-label', `Slide ${i + 1}`);
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+        function goTo(index) {
+            slides[current].classList.remove('active');
+            dots[current].classList.remove('active');
+            current = index;
+            slides[current].classList.add('active');
+            dots[current].classList.add('active');
+        }
+
+        function next() {
+            goTo((current + 1) % slides.length);
+        }
+
+        function startAutoplay() {
+            interval = setInterval(next, 3000);
+        }
+
+        function stopAutoplay() {
+            clearInterval(interval);
+        }
+
+        /* Start autoplay when visible */
+        const carouselObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAutoplay();
+                } else {
+                    stopAutoplay();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        carouselObserver.observe(carousel);
+
+        /* Pause on hover/touch */
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+        carousel.addEventListener('touchstart', stopAutoplay, { passive: true });
+        carousel.addEventListener('touchend', () => {
+            stopAutoplay();
+            startAutoplay();
+        });
+
+        /* Swipe support on center phone */
+        let touchStartX = 0;
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e) => {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 40) {
+                stopAutoplay();
+                if (diff > 0) {
+                    goTo((current + 1) % slides.length);
+                } else {
+                    goTo((current - 1 + slides.length) % slides.length);
+                }
+                startAutoplay();
+            }
+        });
+    }
 
     /* --- Mobile Tab Bar: active state tracking --- */
     const tabBar = document.querySelector('.mobile-tab-bar');
