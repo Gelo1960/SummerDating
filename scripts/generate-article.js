@@ -2,7 +2,6 @@
 // Pipeline de génération : DeepSeek (draft) → Claude (polish + SEO)
 
 const OpenAI = require("openai");
-const Anthropic = require("@anthropic-ai/sdk").default;
 const config = require("./config");
 
 // === DeepSeek Client (compatible OpenAI SDK) ===
@@ -11,9 +10,13 @@ const deepseek = new OpenAI({
   baseURL: config.deepseek.baseURL,
 });
 
-// === Claude Client (optionnel — skip polish si pas d'API key) ===
+// === Claude Client (optionnel — import + init seulement si clé présente) ===
 const hasClaudeKey = !!config.claude.apiKey;
-const anthropic = hasClaudeKey ? new Anthropic({ apiKey: config.claude.apiKey }) : null;
+let anthropic = null;
+if (hasClaudeKey) {
+  const Anthropic = require("@anthropic-ai/sdk").default;
+  anthropic = new Anthropic({ apiKey: config.claude.apiKey });
+}
 
 /**
  * ÉTAPE 1 : Draft avec DeepSeek
