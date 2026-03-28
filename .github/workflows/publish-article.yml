@@ -1,20 +1,15 @@
 # .github/workflows/publish-article.yml
-# Pipeline SEO automatisé — publie un article par jour à 8h (Paris)
+# Pipeline SEO Buzz v2 — article basé sur les vraies tendances, toutes les 3h
 
-name: 📝 SEO Article Pipeline
+name: 📝 SEO Buzz Pipeline v2
 
 on:
-  # Cron quotidien à 6h UTC (8h Paris)
+  # Toutes les 3 heures
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 */3 * * *"
 
-  # Permet aussi le déclenchement manuel
-  workflow_dispatch:
-    inputs:
-      force_category:
-        description: "Forcer une catégorie (dating, sorties, lifestyle, buzz)"
-        required: false
-        type: string
+  # Déclenchement manuel
+  workflow_dispatch: {}
 
 # Permissions pour push dans le repo
 permissions:
@@ -23,7 +18,7 @@ permissions:
 jobs:
   generate-and-publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: 📥 Checkout repo
@@ -39,20 +34,21 @@ jobs:
       - name: 📦 Install dependencies
         run: npm ci
 
-      - name: 🚀 Run SEO Pipeline
+      - name: 🚀 Run SEO Buzz Pipeline v2
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          APIFY_API_TOKEN: ${{ secrets.APIFY_API_TOKEN }}
           CI: true
         run: npm run pipeline
 
       - name: 📊 Check results
         run: |
           echo "=== Articles publiés ==="
-          cat blog/articles.json | head -50
+          cat blog/articles.json 2>/dev/null | head -50 || echo "Pas encore d'articles"
           echo ""
           echo "=== Fichiers blog ==="
           ls -la blog/
           echo ""
           echo "=== Sitemap ==="
-          cat sitemap.xml
+          cat sitemap.xml 2>/dev/null || echo "Pas encore de sitemap"
