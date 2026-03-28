@@ -1,4 +1,7 @@
 .DS_Store
+.next/
+out/
+.env.local
 *.mp4
 node_modules/
 Nouveau dossier contenant des éléments/

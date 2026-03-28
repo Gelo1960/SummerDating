@@ -1,0 +1,689 @@
+/* ================================================
+   LIEUX PAGES — Programmatic SEO Styles
+   Matches Summer Dating Design System
+   ================================================ */
+
+/* --- Page Wrapper --- */
+
+.lieux-page {
+    min-height: 100vh;
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Nav Bar (glass pill, matching main site) --- */
+
+.lieux-nav {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: var(--radius-full);
+    padding: 8px 8px 8px 20px;
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.lieux-nav .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.lieux-nav .nav-logo-img {
+    height: 40px;
+    width: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+.lieux-nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.lieux-nav .nav-link {
+    color: var(--text-secondary);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.lieux-nav .nav-link:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.lieux-nav .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: 10px 20px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    white-space: nowrap;
+}
+
+.lieux-nav .nav-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+}
+
+/* --- Page Header --- */
+
+.lieux-header {
+    text-align: center;
+    padding: clamp(120px, 15vh, 180px) 0 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.lieux-header h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+    margin-bottom: 16px;
+    background: linear-gradient(45deg, var(--text-primary), #2a2a4e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.lieux-header h1 .highlight {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* --- Intro Paragraph --- */
+
+.lieux-intro {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+    text-align: center;
+    font-size: clamp(16px, 1.8vw, 19px);
+    color: var(--text-secondary);
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+}
+
+/* --- Content Wrapper --- */
+
+.lieux-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* --- Place Card (Glassmorphism) --- */
+
+.place-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: var(--radius-lg);
+    padding: 28px 28px 24px;
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    overflow: hidden;
+}
+
+.place-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.place-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.place-name {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.place-neighborhood {
+    font-size: 14px;
+    color: var(--text-tertiary);
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.place-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.7);
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.place-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.place-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.12), rgba(247, 160, 114, 0.12));
+    color: var(--gradient-start);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    border: 1px solid rgba(255, 107, 157, 0.18);
+}
+
+.place-description {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.place-special {
+    margin-bottom: 16px;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.06), rgba(247, 160, 114, 0.06));
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 107, 157, 0.1);
+}
+
+.place-special-label {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gradient-start);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+}
+
+.place-special-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.place-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.place-info-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.place-best-time {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    font-weight: 500;
+}
+
+.place-best-time strong {
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* --- CTA Box --- */
+
+.cta-box {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid));
+    border-radius: var(--radius-xl);
+    padding: 48px 32px;
+    text-align: center;
+    box-shadow: var(--shadow-md), 0 0 80px rgba(255, 107, 157, 0.15);
+    margin: 48px auto;
+    max-width: 800px;
+}
+
+.cta-box-title {
+    font-family: var(--font-heading);
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: 8px;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+}
+
+.cta-box-subtitle {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 28px;
+    font-weight: 500;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-white);
+    color: var(--text-primary);
+    padding: 14px 32px;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+}
+
+.cta-button svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-primary);
+}
+
+/* --- FAQ Section --- */
+
+.faq-section {
+    max-width: 800px;
+    margin: 48px auto;
+    padding: 0 24px;
+}
+
+.faq-section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease-out;
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.faq-item[open] {
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    list-style: none;
+    letter-spacing: -0.01em;
+    transition: color 0.2s;
+    user-select: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text-tertiary);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(45deg);
+    color: var(--gradient-start);
+}
+
+.faq-item summary:hover {
+    color: var(--gradient-start);
+}
+
+.faq-answer {
+    padding: 0 24px 18px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+/* --- Related Guides Section --- */
+
+.related-section {
+    max-width: 800px;
+    margin: 48px auto;
+    padding: 0 24px;
+}
+
+.related-section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+}
+
+.related-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.related-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    color: var(--gradient-start);
+}
+
+.related-card-emoji {
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+/* --- Footer (matches main site) --- */
+
+.lieux-footer {
+    text-align: center;
+    padding: 40px 0 60px;
+    color: var(--text-secondary);
+}
+
+.lieux-footer .footer-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.lieux-footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    list-style: none;
+    margin-bottom: 16px;
+    padding: 0;
+}
+
+.lieux-footer-links a {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.lieux-footer-links a:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.lieux-footer-copy {
+    font-size: 13px;
+    color: var(--text-tertiary);
+}
+
+/* ================================================
+   RESPONSIVE — Mobile First
+   ================================================ */
+
+/* Small phones */
+@media (max-width: 480px) {
+    .lieux-header {
+        padding-top: 100px;
+        padding-bottom: 28px;
+    }
+
+    .lieux-header h1 {
+        font-size: 28px;
+    }
+
+    .lieux-intro {
+        font-size: 15px;
+        margin-bottom: 32px;
+    }
+
+    .lieux-content {
+        gap: 16px;
+        padding: 0 16px;
+    }
+
+    .place-card {
+        padding: 20px 18px 18px;
+        border-radius: 16px;
+    }
+
+    .place-name {
+        font-size: 19px;
+    }
+
+    .place-card-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .place-tags {
+        gap: 6px;
+    }
+
+    .place-tag {
+        font-size: 12px;
+        padding: 3px 10px;
+    }
+
+    .place-special {
+        padding: 12px;
+    }
+
+    .cta-box {
+        padding: 32px 20px;
+        margin: 32px 16px;
+        border-radius: var(--radius-lg);
+    }
+
+    .cta-box-title {
+        font-size: 22px;
+    }
+
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+
+    .faq-section {
+        padding: 0 16px;
+        margin: 32px auto;
+    }
+
+    .faq-item summary {
+        padding: 14px 16px;
+        font-size: 15px;
+    }
+
+    .faq-answer {
+        padding: 0 16px 14px;
+        font-size: 14px;
+    }
+
+    .related-section {
+        padding: 0 16px;
+        margin: 32px auto;
+    }
+
+    .related-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .related-card {
+        padding: 14px 16px;
+    }
+
+    .lieux-nav {
+        top: 12px;
+        padding: 6px 6px 6px 14px;
+        gap: 10px;
+    }
+
+    .lieux-nav .nav-logo-img {
+        height: 34px;
+    }
+
+    .lieux-nav .nav-link {
+        display: none;
+    }
+
+    .lieux-nav .nav-cta {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .lieux-footer {
+        padding: 32px 0 24px;
+    }
+
+    .lieux-footer-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .lieux-footer-links a {
+        font-size: 13px;
+    }
+
+    .lieux-footer-copy {
+        font-size: 12px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .lieux-header {
+        padding-top: 110px;
+    }
+
+    .lieux-content {
+        gap: 20px;
+    }
+
+    .place-card {
+        padding: 24px;
+    }
+
+    .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-box {
+        margin: 40px 24px;
+    }
+
+    .lieux-nav .nav-link {
+        font-size: 14px;
+    }
+}
+
+/* Large screens */
+@media (min-width: 769px) {
+    .lieux-content {
+        gap: 28px;
+    }
+
+    .related-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
