@@ -397,167 +397,91 @@ section {
 }
 
 /* ================================================
-   LE CONCEPT
+   BENTO GRID — Concept + Steps + Features
    ================================================ */
 
-.concept {
-    text-align: center;
-    padding: 80px 0;
+.bento-section {
+    padding: 60px 0;
 }
 
-.concept .section-title {
-    max-width: 600px;
-    margin: 0 auto 20px;
-}
-
-.concept .section-description {
-    max-width: 560px;
-}
-
-/* ================================================
-   COMMENT ÇA MARCHE — 3 STEPS
-   ================================================ */
-
-.steps {
-    text-align: center;
-}
-
-.steps-grid {
+.bento-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 56px;
+    gap: 16px;
 }
 
-.step-card {
-    background: rgba(255, 255, 255, 0.6);
+/* --- Base card --- */
+
+.bento-card {
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    border-radius: 28px;
-    padding: 40px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    padding: 32px;
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    overflow: hidden;
 }
 
-.step-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+.bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
 }
 
-.step-icon {
-    font-size: 48px;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.step-number {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid));
-    color: white;
+.bento-card h3 {
+    font-size: 20px;
     font-weight: 700;
-    font-size: 14px;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.bento-card p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+/* --- Concept card (wide) --- */
+
+.bento-concept {
+    grid-column: span 2;
+}
+
+.bento-concept .section-badge {
     margin-bottom: 16px;
 }
 
-.step-card h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: -0.5px;
+.bento-title {
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    background: linear-gradient(45deg, #0a0a0a, #2a2a2a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.step-card p {
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-}
+/* --- Stats card --- */
 
-/* ================================================
-   FONCTIONNALITÉS — 4 FEATURES
-   ================================================ */
-
-.features {
+.bento-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     text-align: center;
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-top: 56px;
-}
-
-.feature-card {
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.65);
-    border-radius: 28px;
-    padding: 40px 32px;
-    text-align: left;
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-}
-
-.feature-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-}
-
-.feature-card .card-icon {
-    font-size: 40px;
-    margin-bottom: 16px;
-    display: block;
-}
-
-.feature-card h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    letter-spacing: -0.5px;
-}
-
-.feature-card p {
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-}
-
-/* ================================================
-   SOCIAL PROOF
-   ================================================ */
-
-.social-proof {
-    padding: 40px 0 20px;
-}
-
-.proof-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    border-radius: 24px;
-    padding: 32px 48px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.proof-item {
+.bento-stat {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 4px;
+    gap: 2px;
 }
 
-.proof-number {
-    font-size: clamp(28px, 4vw, 36px);
+.bento-stat-number {
+    font-size: 28px;
     font-weight: 800;
     letter-spacing: -1px;
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid));
@@ -565,16 +489,102 @@ section {
     -webkit-text-fill-color: transparent;
 }
 
-.proof-label {
-    font-size: 14px;
+.bento-stat-label {
+    font-size: 13px;
     color: var(--text-secondary);
     font-weight: 500;
 }
 
-.proof-divider {
-    width: 1px;
-    height: 40px;
-    background: rgba(0, 0, 0, 0.1);
+/* --- Card with phone screenshot --- */
+
+.bento-with-phone {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+}
+
+.bento-phone {
+    flex-shrink: 0;
+}
+
+.bento-phone-frame {
+    width: 140px;
+    background: #1a1a1a;
+    border-radius: 24px;
+    padding: 6px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.bento-phone-frame img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+}
+
+.bento-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.bento-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.bento-content p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Wide card with phone = spans 2 columns */
+.bento-wide {
+    grid-column: span 2;
+}
+
+/* --- Icon-only card --- */
+
+.bento-icon-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+/* --- Text card --- */
+
+.bento-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-text .bento-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+/* --- Step number in bento --- */
+
+.bento-card .step-number {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid));
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 12px;
+    text-align: center;
 }
 
 /* ================================================
@@ -1265,83 +1275,54 @@ footer {
         height: 32px;
     }
 
-    /* --- Steps: horizontal scroll cards --- */
-    .steps-grid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 14px;
-        padding: 0 20px 16px;
-        margin-top: 32px;
-        scrollbar-width: none;
-        grid-template-columns: none;
-        max-width: none;
+    /* --- Bento Grid: mobile --- */
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
 
-    .steps-grid::-webkit-scrollbar {
-        display: none;
+    .bento-concept,
+    .bento-wide {
+        grid-column: span 1;
     }
 
-    .step-card {
-        flex: 0 0 auto;
-        width: 260px;
-        scroll-snap-align: center;
-        padding: 28px 22px;
-        border-radius: 22px;
+    .bento-card {
+        padding: 24px;
+        border-radius: 20px;
     }
 
-    .step-icon {
-        font-size: 36px;
-        margin-bottom: 12px;
+    .bento-title {
+        font-size: 26px;
     }
 
-    .step-card h3 {
-        font-size: 17px;
+    .bento-with-phone {
+        gap: 16px;
+        padding: 20px;
     }
 
-    .step-card p {
-        font-size: 14px;
+    .bento-phone-frame {
+        width: 110px;
+        border-radius: 18px;
+        padding: 5px;
     }
 
-    /* --- Features: horizontal scroll cards --- */
-    .features-grid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 14px;
-        padding: 0 20px 16px;
-        margin-top: 32px;
-        scrollbar-width: none;
-        grid-template-columns: none;
-        max-width: none;
+    .bento-phone-frame img {
+        border-radius: 14px;
     }
 
-    .features-grid::-webkit-scrollbar {
-        display: none;
+    .bento-stats {
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-around;
     }
 
-    .feature-card {
-        flex: 0 0 auto;
-        width: 240px;
-        scroll-snap-align: center;
-        padding: 24px 20px;
-        border-radius: 22px;
-        text-align: center;
+    .bento-stat-number {
+        font-size: 22px;
     }
 
-    .feature-card .card-icon {
+    .bento-icon {
         font-size: 32px;
-        margin-bottom: 12px;
-    }
-
-    .feature-card h3 {
-        font-size: 17px;
-    }
-
-    .feature-card p {
-        font-size: 14px;
+        margin-bottom: 10px;
     }
 
     /* --- iPhone Coverflow: mobile --- */
@@ -1474,12 +1455,22 @@ footer {
         padding: 0 16px;
     }
 
-    .step-card {
-        width: 240px;
+    .bento-card {
+        padding: 20px;
+        border-radius: 18px;
     }
 
-    .feature-card {
-        width: 220px;
+    .bento-phone-frame {
+        width: 95px;
+        border-radius: 16px;
+    }
+
+    .bento-title {
+        font-size: 22px;
+    }
+
+    .bento-stat-number {
+        font-size: 18px;
     }
 
     .phones-showcase {
