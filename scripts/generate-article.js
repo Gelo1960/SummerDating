@@ -1,5 +1,5 @@
 // scripts/generate-article.js
-// Pipeline de génération : DeepSeek (draft) → Claude (polish + SEO)
+// Pipeline de génération : DeepSeek uniquement
 
 const OpenAI = require("openai");
 const config = require("./config");
@@ -10,20 +10,11 @@ const deepseek = new OpenAI({
   baseURL: config.deepseek.baseURL,
 });
 
-// === Claude Client (optionnel — import + init seulement si clé présente) ===
-const hasClaudeKey = !!config.claude.apiKey;
-let anthropic = null;
-if (hasClaudeKey) {
-  const Anthropic = require("@anthropic-ai/sdk").default;
-  anthropic = new Anthropic({ apiKey: config.claude.apiKey });
-}
-
 /**
- * ÉTAPE 1 : Draft avec DeepSeek
- * Génère le contenu brut de l'article
+ * Génère l'article complet avec DeepSeek
  */
-async function generateDraft(brief) {
-  console.log("\n✍️  Étape 1 — DeepSeek génère le draft...");
+async function generateArticle(brief) {
+  console.log("\n✍️  DeepSeek génère l'article...");
 
   const systemPrompt = `Tu es un rédacteur web expert en SEO francophone spécialisé dans le dating, les sorties et le lifestyle parisien.
 Tu écris pour le blog de Summer Dating, une app iOS de rencontres et sorties à Paris.
@@ -39,6 +30,10 @@ RÈGLES DE RÉDACTION :
 - Utilise des emojis avec parcimonie (max 3-4 dans tout l'article)
 - Ajoute des données chiffrées ou stats quand possible (même approximatives)
 - Rédige en français naturel, comme un article de blog tendance
+- STYLE : Texte vivant, percutant. Paragraphes courts (3-4 lignes max). Phrases directes.
+- ACCROCHE : Le titre doit donner envie de cliquer. L'intro doit accrocher en 2 lignes max.
+- Summer Dating c'est une app de sorties et rencontres à Paris. L'app propose des événements, des lieux curatés, et des aventures contextuelles.
+- Le lien App Store est : ${config.site.appStoreUrl}
 
 FORMAT DE SORTIE (JSON strict) :
 {
@@ -85,73 +80,12 @@ Réponds UNIQUEMENT avec le JSON, sans markdown ni backticks.`;
 
   // Parse JSON (gérer les backticks potentiels)
   const cleaned = raw.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
-  const draft = JSON.parse(cleaned);
+  const article = JSON.parse(cleaned);
 
-  console.log(`   ✅ Draft généré : "${draft.title}"`);
-  console.log(`   📊 ${draft.sections.length} sections`);
+  console.log(`   ✅ Article généré : "${article.title}"`);
+  console.log(`   📊 ${article.sections.length} sections`);
 
-  return draft;
+  return article;
 }
 
-/**
- * ÉTAPE 2 : Polish avec Claude
- * Améliore la qualité, le SEO, et le style
- */
-async function polishWithClaude(draft, brief) {
-  console.log("\n💎 Étape 2 — Claude polit l'article...");
-
-  const message = await anthropic.messages.create({
-    model: config.claude.model,
-    max_tokens: 4000,
-    messages: [
-      {
-        role: "user",
-        content: `Tu es éditeur en chef du blog Summer Dating. Voici un draft d'article à améliorer.
-
-DRAFT ACTUEL (JSON) :
-${JSON.stringify(draft, null, 2)}
-
-BRIEF ORIGINAL :
-- Keywords cibles : ${brief.keywordAngle.allKeywords.join(", ")}
-- Catégorie : ${brief.keywordAngle.category}
-
-TES MISSIONS :
-1. STYLE : Rends le texte plus vivant, plus percutant. Coupe les phrases creuses. Ajoute du rythme.
-2. SEO : Vérifie que les keywords sont bien placés (H1, H2, intro, conclusion). Optimise la meta description.
-3. CTA : Assure-toi que Summer Dating est mentionné ${config.article.ctaFrequency} fois de façon naturelle. Le CTA principal doit mentionner le lien de téléchargement.
-4. ACCROCHE : Le titre doit donner envie de cliquer. L'intro doit accrocher en 2 lignes max.
-5. FACTUEL : Corrige toute info douteuse. Enlève les stats inventées qui semblent fausses.
-6. LISIBILITÉ : Paragraphes courts (3-4 lignes max). Phrases directes. Pas de jargon inutile.
-
-IMPORTANT : Summer Dating c'est une app de sorties et rencontres à Paris. L'app propose des événements, des lieux curatés, et des aventures contextuelles. Le lien App Store est : ${config.site.appStoreUrl}
-
-Réponds UNIQUEMENT avec le JSON amélioré (même format que l'input), sans markdown ni backticks. Garde les mêmes clés JSON.`,
-      },
-    ],
-  });
-
-  const raw = message.content[0].text.trim();
-  const cleaned = raw.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
-  const polished = JSON.parse(cleaned);
-
-  console.log(`   ✅ Article poli : "${polished.title}"`);
-
-  return polished;
-}
-
-/**
- * Pipeline complet : brief → draft → polish (si Claude dispo)
- */
-async function generateArticle(brief) {
-  const draft = await generateDraft(brief);
-
-  if (!hasClaudeKey) {
-    console.log("\n⚠️  ANTHROPIC_API_KEY non configurée — skip polish, utilisation du draft direct");
-    return draft;
-  }
-
-  const polished = await polishWithClaude(draft, brief);
-  return polished;
-}
-
-module.exports = { generateArticle, generateDraft, polishWithClaude };
+module.exports = { generateArticle };

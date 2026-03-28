@@ -8,11 +8,6 @@ module.exports = {
     baseURL: "https://api.deepseek.com",
     model: "deepseek-chat",
   },
-  claude: {
-    apiKey: process.env.ANTHROPIC_API_KEY,
-    model: "claude-sonnet-4-20250514",
-  },
-
   // === Site ===
   site: {
     name: "Summer Dating",
