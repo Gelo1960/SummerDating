@@ -38,144 +38,272 @@ function buildBlogIndex() {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog — Summer Dating | Sorties, Dating & Lifestyle à Paris</title>
   <meta name="description" content="Découvrez nos articles sur les sorties, le dating et le lifestyle parisien. Tips, tendances et bons plans pour transformer chaque sortie en aventure.">
+  <meta name="theme-color" content="#ff9ccf">
   <link rel="canonical" href="https://summer-dating.vercel.app/blog/">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap');
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://summer-dating.vercel.app/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png">
+  <link rel="apple-touch-icon" href="https://summer-dating.vercel.app/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
     :root {
-      --primary: #6366F1;
-      --primary-light: #818CF8;
-      --primary-dark: #4F46E5;
-      --bg: #0A0A0F;
-      --bg-card: rgba(255,255,255,0.04);
-      --bg-card-hover: rgba(255,255,255,0.08);
-      --text: #E8E8ED;
-      --text-muted: #9CA3AF;
-      --text-dim: #6B7280;
-      --border: rgba(255,255,255,0.08);
-      --radius: 16px;
+      --gradient-start: #FF6B9D;
+      --gradient-mid: #F7A072;
+      --gradient-end: #FFECD2;
+      --text-primary: #1A1A2E;
+      --text-secondary: #64648C;
+      --text-tertiary: #9A9ABF;
+      --color-white: #ffffff;
+      --color-black: #0A0A0F;
+      --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 24px;
+      --radius-full: 999px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.1);
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background:
+        radial-gradient(ellipse at 20% 0%, #FFECD2 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, #FFD6F0 0%, transparent 50%),
+        radial-gradient(ellipse at 40% 80%, #FFB5A7 0%, transparent 40%),
+        radial-gradient(ellipse at 90% 70%, #E8D5FF 0%, transparent 40%),
+        #FFF5F0;
+      min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      padding: 1rem 2rem;
-      background: rgba(10,10,15,0.85);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    nav .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem; font-weight: 700;
-      color: var(--text); text-decoration: none;
-    }
-    nav .logo span { color: var(--primary-light); }
-    nav .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-    nav .nav-links a {
-      color: var(--text-muted); text-decoration: none;
-      font-size: 0.9rem; transition: color 0.2s;
-    }
-    nav .nav-links a:hover { color: var(--text); }
-    .cta-nav {
-      background: var(--primary) !important; color: white !important;
-      padding: 0.5rem 1.2rem; border-radius: 100px; font-weight: 500 !important;
+
+    @supports (background-attachment: fixed) {
+      @media (hover: hover) {
+        body { background-attachment: fixed; }
+      }
     }
 
+    a { color: inherit; text-decoration: none; }
+
+    :focus-visible {
+      outline: 3px solid var(--gradient-start);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* === NAV === */
+    .site-header {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background-color: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(24px) saturate(200%);
+      -webkit-backdrop-filter: blur(24px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: var(--radius-full);
+      padding: 8px 8px 8px 20px;
+      box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-img {
+      height: 48px; width: auto;
+      border-radius: 12px; display: block;
+    }
+    .nav-links-group { display: flex; align-items: center; gap: 16px; }
+    .nav-link {
+      color: var(--text-secondary);
+      font-size: 15px; font-weight: 500;
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--text-primary); text-decoration: none; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--color-black); color: var(--color-white);
+      padding: 12px 24px; border-radius: 99px;
+      text-decoration: none; font-weight: 600; font-size: 15px;
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+    }
+
+    /* === BLOG HEADER === */
     .blog-header {
-      max-width: 900px; margin: 0 auto;
-      padding: 8rem 2rem 3rem; text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 130px 2rem 3rem;
+      text-align: center;
+    }
+    .blog-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(255, 107, 157, 0.12), rgba(247, 160, 114, 0.12));
+      color: var(--gradient-start);
+      padding: 6px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: var(--font-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(255, 107, 157, 0.15);
     }
     .blog-header h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-heading);
       font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 700; color: white;
+      font-weight: 700;
+      color: var(--text-primary);
       margin-bottom: 1rem;
+      letter-spacing: -0.04em;
     }
     .blog-header p {
-      color: var(--text-muted); font-size: 1.1rem;
-      max-width: 600px; margin: 0 auto;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
     }
 
+    /* === ARTICLES GRID === */
     .articles-grid {
-      max-width: 900px; margin: 0 auto;
+      max-width: 900px;
+      margin: 0 auto;
       padding: 0 2rem 4rem;
-      display: grid; gap: 1.5rem;
+      display: grid;
+      gap: 1.2rem;
     }
     .article-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: var(--radius-xl);
       padding: 2rem;
-      text-decoration: none; color: var(--text);
-      transition: background 0.3s, border-color 0.3s, transform 0.2s;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+      box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.8);
     }
     .article-card:hover {
-      background: var(--bg-card-hover);
-      border-color: rgba(99,102,241,0.3);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      text-decoration: none;
     }
     .card-category {
       display: inline-block;
-      background: var(--primary); color: white;
-      padding: 0.2rem 0.7rem; border-radius: 100px;
-      font-size: 0.72rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.05em;
-      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid));
+      color: white;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: var(--font-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.8rem;
     }
     .article-card h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; font-weight: 600;
-      color: white; margin-bottom: 0.6rem; line-height: 1.3;
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
     }
     .article-card p {
-      color: var(--text-muted); font-size: 0.92rem;
-      line-height: 1.6; margin-bottom: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
     }
     .card-meta {
-      display: flex; justify-content: space-between;
-      align-items: center; flex-wrap: wrap; gap: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
-    .card-date { color: var(--text-dim); font-size: 0.82rem; }
-    .card-tags { color: var(--primary-light); font-size: 0.82rem; }
+    .card-date {
+      color: var(--text-tertiary);
+      font-size: 0.82rem;
+    }
+    .card-tags {
+      color: var(--gradient-start);
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
 
     .empty-state {
-      text-align: center; padding: 4rem 2rem;
-      color: var(--text-dim);
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-tertiary);
+      font-size: 1.1rem;
     }
 
+    /* === FOOTER === */
     footer {
-      text-align: center; padding: 3rem 2rem;
-      color: var(--text-dim); font-size: 0.85rem;
-      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--text-tertiary);
+      font-size: 0.85rem;
     }
-    footer a { color: var(--primary-light); text-decoration: none; }
+    footer a {
+      color: var(--gradient-start);
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
 
+    /* === RESPONSIVE === */
     @media (max-width: 640px) {
-      .blog-header { padding: 6rem 1.2rem 2rem; }
+      .blog-header { padding: 100px 1.2rem 2rem; }
       .articles-grid { padding: 0 1.2rem 3rem; }
       .article-card { padding: 1.5rem; }
+      .site-header { top: 12px; }
+      .site-nav { padding: 6px 6px 6px 14px; gap: 10px; }
+      .logo-img { height: 36px; }
+      .nav-cta { padding: 10px 18px; font-size: 13px; }
+      .nav-link { font-size: 13px; }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="https://summer-dating.vercel.app" class="logo">Summer<span>Dating</span></a>
-    <div class="nav-links">
-      <a href="https://summer-dating.vercel.app">Accueil</a>
-      <a href="https://summer-dating.vercel.app/blog/">Blog</a>
-      <a href="${config.site.appStoreUrl}" class="cta-nav">Télécharger</a>
-    </div>
-  </nav>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="https://summer-dating.vercel.app" class="logo">
+        <img src="https://summer-dating.vercel.app/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png" alt="Summer Dating" class="logo-img">
+      </a>
+      <div class="nav-links-group">
+        <a href="https://summer-dating.vercel.app" class="nav-link">Accueil</a>
+        <a href="${config.site.appStoreUrl}" class="nav-cta" target="_blank" rel="noopener noreferrer">Télécharger</a>
+      </div>
+    </nav>
+  </header>
 
   <header class="blog-header">
-    <h1>Le Blog</h1>
+    <div class="blog-badge">Blog</div>
+    <h1>Le Blog Summer</h1>
     <p>Tendances dating, meilleurs spots parisiens et lifestyle — tout pour transformer tes sorties en aventures.</p>
   </header>
 
@@ -185,6 +313,7 @@ function buildBlogIndex() {
 
   <footer>
     <p>&copy; ${new Date().getFullYear()} Summer Dating — <a href="https://summer-dating.vercel.app">summer.dating</a></p>
+    <p style="margin-top:0.5rem"><a href="https://summer-dating.vercel.app/privacy_policy.html">Confidentialité</a> · <a href="https://summer-dating.vercel.app/terms_of_service.html">Conditions</a></p>
   </footer>
 
 </body>
