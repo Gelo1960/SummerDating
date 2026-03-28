@@ -82,22 +82,54 @@ document.addEventListener('DOMContentLoaded', () => {
             dot.classList.add('carousel-dot');
             if (i === 0) dot.classList.add('active');
             dot.setAttribute('aria-label', `Slide ${i + 1}`);
-            dot.addEventListener('click', () => goTo(i));
             dotsContainer.appendChild(dot);
         });
 
         const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        let isAnimating = false;
 
-        function goTo(index) {
-            slides[current].classList.remove('active');
-            dots[current].classList.remove('active');
+        function slideTo(index, direction) {
+            if (isAnimating || index === current) return;
+            isAnimating = true;
+
+            const prev = current;
+            const exitClass = direction === 'left' ? 'exit-left' : 'exit-right';
+            const enterClass = direction === 'left' ? 'enter-right' : 'enter-left';
+
+            /* Position new slide off-screen */
+            slides[index].classList.remove('active', 'exit-left', 'exit-right');
+            slides[index].classList.add(enterClass);
+
+            /* Force reflow so the browser registers the start position */
+            void slides[index].offsetWidth;
+
+            /* Remove enter class and add active — triggers the slide-in */
+            slides[index].classList.remove(enterClass);
+            slides[index].classList.add('active');
+
+            /* Slide out current */
+            slides[prev].classList.remove('active');
+            slides[prev].classList.add(exitClass);
+
+            /* Update dots */
+            dots[prev].classList.remove('active');
+            dots[index].classList.add('active');
+
             current = index;
-            slides[current].classList.add('active');
-            dots[current].classList.add('active');
+
+            /* Clean up after transition */
+            setTimeout(() => {
+                slides[prev].classList.remove(exitClass);
+                isAnimating = false;
+            }, 580);
         }
 
         function next() {
-            goTo((current + 1) % slides.length);
+            slideTo((current + 1) % slides.length, 'left');
+        }
+
+        function prev() {
+            slideTo((current - 1 + slides.length) % slides.length, 'right');
         }
 
         function startAutoplay() {
@@ -107,6 +139,15 @@ document.addEventListener('DOMContentLoaded', () => {
         function stopAutoplay() {
             clearInterval(interval);
         }
+
+        /* Dot clicks */
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                stopAutoplay();
+                slideTo(i, i > current ? 'left' : 'right');
+                startAutoplay();
+            });
+        });
 
         /* Start autoplay when visible */
         const carouselObserver = new IntersectionObserver((entries) => {
@@ -124,29 +165,24 @@ document.addEventListener('DOMContentLoaded', () => {
         /* Pause on hover/touch */
         carousel.addEventListener('mouseenter', stopAutoplay);
         carousel.addEventListener('mouseleave', startAutoplay);
-        carousel.addEventListener('touchstart', stopAutoplay, { passive: true });
-        carousel.addEventListener('touchend', () => {
-            stopAutoplay();
-            startAutoplay();
-        });
 
         /* Swipe support on center phone */
         let touchStartX = 0;
         carousel.addEventListener('touchstart', (e) => {
+            stopAutoplay();
             touchStartX = e.changedTouches[0].screenX;
         }, { passive: true });
 
         carousel.addEventListener('touchend', (e) => {
             const diff = touchStartX - e.changedTouches[0].screenX;
             if (Math.abs(diff) > 40) {
-                stopAutoplay();
                 if (diff > 0) {
-                    goTo((current + 1) % slides.length);
+                    next();
                 } else {
-                    goTo((current - 1 + slides.length) % slides.length);
+                    prev();
                 }
-                startAutoplay();
             }
+            startAutoplay();
         });
     }
 
