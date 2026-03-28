@@ -4,15 +4,25 @@
 
 /* --- Variables & Reset --- */
 :root {
-    --gradient-start: #ff9ccf;
-    --gradient-mid: #f6a06b;
-    --gradient-end: #ffe7ad;
-    --text-primary: #1f1f1f;
-    --text-secondary: #5a5a5a;
+    --gradient-start: #FF6B9D;
+    --gradient-mid: #F7A072;
+    --gradient-end: #FFECD2;
+    --text-primary: #1A1A2E;
+    --text-secondary: #64648C;
+    --text-tertiary: #9A9ABF;
     --color-white: #ffffff;
-    --color-black: #000000;
-    --bubble-bg: rgba(255, 255, 255, 0.45);
-    --bubble-border: rgba(255, 255, 255, 0.6);
+    --color-black: #0A0A0F;
+    --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+    --radius-full: 999px;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.1);
+    --shadow-glow: 0 0 60px rgba(255, 107, 157, 0.12);
 }
 
 * {
@@ -26,11 +36,18 @@ html {
 }
 
 body {
-    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: var(--font-body);
     color: var(--text-primary);
-    background: linear-gradient(165deg, #FFEFD5 0%, #FFE0E5 20%, #FFD1E9 40%, #FFC2ED 60%, #FFB3E6 80%, #FFA4DC 100%);
+    background:
+        radial-gradient(ellipse at 20% 0%, #FFECD2 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, #FFD6F0 0%, transparent 50%),
+        radial-gradient(ellipse at 40% 80%, #FFB5A7 0%, transparent 40%),
+        radial-gradient(ellipse at 90% 70%, #E8D5FF 0%, transparent 40%),
+        #FFF5F0;
     min-height: 100vh;
-    line-height: 1.6;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 @supports (background-attachment: fixed) {
@@ -141,13 +158,13 @@ nav {
     display: flex;
     align-items: center;
     gap: 16px;
-    background-color: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    border-radius: 99px;
+    background-color: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: var(--radius-full);
     padding: 8px 8px 8px 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .logo {
@@ -211,11 +228,12 @@ nav {
 }
 
 .hero h1 {
-    font-size: clamp(42px, 8vw, 120px);
-    font-weight: 900;
+    font-family: var(--font-heading);
+    font-size: clamp(44px, 8vw, 120px);
+    font-weight: 800;
     line-height: 0.92;
     margin-bottom: 24px;
-    letter-spacing: -4px;
+    letter-spacing: -0.04em;
     background: linear-gradient(45deg, #0a0a0a, #2a2a2a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -223,19 +241,51 @@ nav {
     animation: fadeInUp 0.6s ease-out 0.4s forwards;
 }
 
-.highlight {
-    background: linear-gradient(135deg, #ff9ccf, #f6a06b);
+.hero .highlight {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* --- Info/Important boxes (pages secondaires) --- */
+
+.important-box {
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.08), rgba(247, 160, 114, 0.08));
+    border: 1px solid rgba(255, 107, 157, 0.2);
+    border-left: 4px solid var(--gradient-start);
+    padding: 20px 24px;
+    border-radius: var(--radius-md);
+    margin: 20px 0;
+}
+
+.important-box strong {
+    color: var(--gradient-start);
+}
+
+.important-box ul {
+    margin-top: 8px;
+    padding-left: 20px;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    padding: 20px 24px;
+    border-radius: var(--radius-md);
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
 .hero p {
-    font-size: clamp(17px, 2.2vw, 24px);
-    color: #3a3a3a;
-    letter-spacing: -0.3px;
-    max-width: 700px;
+    font-size: clamp(17px, 2.2vw, 22px);
+    color: var(--text-secondary);
+    letter-spacing: -0.01em;
+    max-width: 640px;
     margin: 0 auto 40px;
-    line-height: 1.5;
+    line-height: 1.6;
     opacity: 0;
     animation: fadeInUp 0.6s ease-out 0.6s forwards;
 }
@@ -322,12 +372,12 @@ nav {
 .feature-bubble {
     position: absolute;
     background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
     padding: 12px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 99px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.8);
     font-size: 15px;
     font-weight: 500;
     display: flex;
@@ -367,23 +417,27 @@ section {
 .section-badge {
     display: inline-block;
     padding: 8px 16px;
-    border-radius: 999px;
+    border-radius: var(--radius-full);
     background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.8);
     color: var(--text-secondary);
+    font-family: var(--font-body);
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 20px;
-    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
 }
 
 .section-title {
+    font-family: var(--font-heading);
     font-size: clamp(32px, 5vw, 56px);
     font-weight: 800;
-    letter-spacing: -2px;
+    letter-spacing: -0.04em;
     line-height: 1.05;
     margin-bottom: 16px;
-    background: linear-gradient(45deg, #0a0a0a, #2a2a2a);
+    background: linear-gradient(45deg, var(--text-primary), #2a2a4e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -394,6 +448,7 @@ section {
     max-width: 640px;
     margin: 0 auto;
     line-height: 1.6;
+    letter-spacing: -0.01em;
 }
 
 /* ================================================
@@ -413,25 +468,27 @@ section {
 /* --- Base card --- */
 
 .bento-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: var(--radius-xl);
     padding: 32px;
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.8);
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
     overflow: hidden;
 }
 
 .bento-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .bento-card h3 {
+    font-family: var(--font-heading);
     font-size: 20px;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.02em;
     margin-bottom: 8px;
     color: var(--text-primary);
 }
@@ -453,12 +510,13 @@ section {
 }
 
 .bento-title {
+    font-family: var(--font-heading);
     font-size: clamp(26px, 3.5vw, 38px);
     font-weight: 800;
-    letter-spacing: -1.5px;
+    letter-spacing: -0.04em;
     line-height: 1.1;
     margin-bottom: 12px;
-    background: linear-gradient(45deg, #0a0a0a, #2a2a2a);
+    background: linear-gradient(45deg, var(--text-primary), #2a2a4e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -510,16 +568,16 @@ section {
 
 .bento-phone-frame {
     width: 140px;
-    background: #1a1a1a;
-    border-radius: 24px;
+    background: var(--color-black);
+    border-radius: var(--radius-xl);
     padding: 6px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-md);
 }
 
 .bento-phone-frame img {
     width: 100%;
     height: auto;
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     display: block;
 }
 
@@ -529,9 +587,10 @@ section {
 }
 
 .bento-content h3 {
+    font-family: var(--font-heading);
     font-size: 20px;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.02em;
     margin-bottom: 8px;
 }
 
@@ -629,7 +688,7 @@ section {
 
 .phone-frame {
     position: relative;
-    background: #1a1a1a;
+    background: var(--color-black);
     border-radius: 44px;
     padding: 10px;
     width: clamp(200px, 20vw, 260px);
@@ -660,8 +719,8 @@ section {
     transform: translateX(-50%);
     width: 72px;
     height: 22px;
-    background: #1a1a1a;
-    border-radius: 20px;
+    background: var(--color-black);
+    border-radius: var(--radius-lg);
     z-index: 10;
 }
 
@@ -678,7 +737,7 @@ section {
     box-shadow:
         0 30px 80px rgba(0, 0, 0, 0.28),
         0 0 0 1px rgba(255, 255, 255, 0.12) inset,
-        0 0 80px rgba(255, 156, 207, 0.08);
+        var(--shadow-glow);
 }
 
 .phone-item[data-pos="left"] {
@@ -780,7 +839,7 @@ section {
     border-radius: 32px;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.05);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
     border: 3px solid rgba(255, 255, 255, 0.6);
 }
 
@@ -819,7 +878,13 @@ section {
 footer {
     text-align: center;
     padding: 40px 0 60px;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+footer .page-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
 }
 
 .footer-links {
@@ -845,7 +910,7 @@ footer {
 
 .footer-copy {
     font-size: 13px;
-    color: #888;
+    color: var(--text-tertiary);
 }
 
 /* ================================================
@@ -861,32 +926,37 @@ footer {
 .page-hero .badge {
     display: inline-block;
     padding: 8px 14px;
-    border-radius: 999px;
+    border-radius: var(--radius-full);
     background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.8);
-    color: #777;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
     font-size: 14px;
+    font-weight: 600;
     margin-bottom: 16px;
-    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
 }
 
 .page-hero .hero-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-heading);
     font-size: clamp(36px, 6vw, 64px);
     line-height: 1.05;
-    letter-spacing: -2px;
+    letter-spacing: -0.04em;
     margin-bottom: 16px;
-    background: linear-gradient(45deg, #0a0a0a, #2a2a2a);
+    background: linear-gradient(45deg, var(--text-primary), #2a2a4e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .page-hero .hero-sub {
-    color: #3a3a3a;
+    color: var(--text-secondary);
     font-size: clamp(16px, 2vw, 22px);
-    letter-spacing: -0.2px;
+    letter-spacing: -0.01em;
     max-width: 700px;
     margin: 0 auto;
+    line-height: 1.6;
 }
 
 .page-hero .chip {
@@ -895,45 +965,54 @@ footer {
     align-items: center;
     gap: 8px;
     background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 999px;
+    border-radius: var(--radius-full);
     padding: 10px 14px;
     font-size: 14px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.06);
+    font-weight: 500;
+    box-shadow: var(--shadow-md);
 }
 
 .content-container {
     max-width: 1000px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     padding: 40px 48px 56px;
     border-radius: 42px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.8);
     overflow: hidden;
     margin-bottom: 40px;
 }
 
 .content-container h1 {
-    color: #111;
+    font-family: var(--font-heading);
+    color: var(--text-primary);
     font-size: clamp(1.8em, 3vw, 2.4em);
+    letter-spacing: -0.03em;
     margin-bottom: 10px;
 }
 
 .content-container h2 {
-    color: #111;
+    font-family: var(--font-heading);
+    color: var(--text-primary);
     font-size: 1.6em;
+    letter-spacing: -0.02em;
     margin-top: 30px;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .content-container h3 {
+    font-family: var(--font-heading);
     color: var(--gradient-start);
     font-size: 1.3em;
+    letter-spacing: -0.01em;
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -952,35 +1031,37 @@ footer {
 }
 
 .last-updated {
-    color: #666;
+    color: var(--text-tertiary);
     font-style: italic;
     margin-bottom: 30px;
 }
 
 .contact-section {
-    background: rgba(248, 249, 250, 0.8);
+    background: rgba(255, 255, 255, 0.5);
     padding: 24px;
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     margin-top: 30px;
 }
 
 .contact-box {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid));
-    color: white;
+    color: var(--color-white);
     padding: 32px;
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     margin: 30px 0;
     text-align: center;
+    box-shadow: var(--shadow-md);
 }
 
 .contact-box h2 {
-    color: white;
+    color: var(--color-white);
     border: none;
     margin-top: 0;
+    -webkit-text-fill-color: var(--color-white);
 }
 
 .contact-box a {
-    color: white;
+    color: var(--color-white);
     font-size: 1.2em;
     font-weight: bold;
     text-decoration: none;
@@ -988,8 +1069,8 @@ footer {
     margin-top: 10px;
     padding: 14px 28px;
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 14px;
-    transition: all 0.3s;
+    border-radius: var(--radius-md);
+    transition: background 0.3s, transform 0.3s;
 }
 
 .contact-box a:hover {
@@ -999,14 +1080,18 @@ footer {
 }
 
 .faq-item {
-    background: rgba(248, 249, 250, 0.8);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 24px;
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     margin-bottom: 16px;
     border-left: 4px solid var(--gradient-start);
+    box-shadow: var(--shadow-sm);
 }
 
 .faq-item h3 {
+    font-family: var(--font-heading);
     color: var(--gradient-start);
     margin-top: 0;
 }
@@ -1019,16 +1104,20 @@ footer {
 }
 
 .feature-card-page {
-    background: rgba(248, 249, 250, 0.8);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 28px;
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     text-align: center;
-    transition: transform 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: var(--shadow-sm);
 }
 
 .feature-card-page:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-md);
 }
 
 .feature-icon {
@@ -1037,18 +1126,18 @@ footer {
 }
 
 .highlight-box {
-    background: #fff3cd;
+    background: rgba(255, 243, 205, 0.8);
     padding: 16px 20px;
     border-left: 4px solid #ffc107;
     margin: 20px 0;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
 }
 
 .alert {
-    background: #fff3cd;
-    border: 1px solid #ffc107;
+    background: rgba(255, 243, 205, 0.8);
+    border: 1px solid rgba(255, 193, 7, 0.5);
     padding: 16px;
-    border-radius: 14px;
+    border-radius: var(--radius-md);
     margin: 20px 0;
 }
 
@@ -1065,12 +1154,8 @@ footer {
    ================================================ */
 
 @media (max-width: 1024px) {
-    .steps-grid {
-        gap: 20px;
-    }
-
-    .features-grid {
-        gap: 20px;
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1246,35 +1331,6 @@ footer {
         display: none;
     }
 
-    /* --- Concept --- */
-    .concept {
-        padding: 40px 0;
-    }
-
-    /* --- Social Proof: horizontal compact --- */
-    .proof-grid {
-        gap: 0;
-        padding: 20px 12px;
-        border-radius: 18px;
-    }
-
-    .proof-item {
-        flex: 1;
-    }
-
-    .proof-number {
-        font-size: 24px;
-    }
-
-    .proof-label {
-        font-size: 11px;
-    }
-
-    .proof-divider {
-        width: 1px;
-        height: 32px;
-    }
-
     /* --- Bento Grid: mobile --- */
     .bento-grid {
         grid-template-columns: 1fr;
@@ -1288,7 +1344,7 @@ footer {
 
     .bento-card {
         padding: 24px;
-        border-radius: 20px;
+        border-radius: var(--radius-lg);
     }
 
     .bento-title {
@@ -1444,7 +1500,7 @@ footer {
 @media (max-width: 480px) {
     .hero h1 {
         font-size: 34px;
-        letter-spacing: -1.5px;
+        letter-spacing: -0.03em;
     }
 
     .hero p {
@@ -1457,12 +1513,12 @@ footer {
 
     .bento-card {
         padding: 20px;
-        border-radius: 18px;
+        border-radius: var(--radius-lg);
     }
 
     .bento-phone-frame {
         width: 95px;
-        border-radius: 16px;
+        border-radius: var(--radius-lg);
     }
 
     .bento-title {
@@ -1501,18 +1557,6 @@ footer {
         transform: translate(calc(-50% + 125px), -50%) scale(0.68) rotate(6deg);
     }
 
-    .proof-grid {
-        padding: 16px 8px;
-    }
-
-    .proof-number {
-        font-size: 20px;
-    }
-
-    .proof-label {
-        font-size: 10px;
-    }
-
     .footer-links {
         flex-direction: column;
         gap: 12px;
@@ -1520,7 +1564,7 @@ footer {
 
     .content-container {
         padding: 20px 16px 28px;
-        border-radius: 20px;
+        border-radius: var(--radius-lg);
     }
 
     .feature-grid {
@@ -1528,7 +1572,7 @@ footer {
     }
 
     .video-container {
-        border-radius: 20px;
+        border-radius: var(--radius-lg);
     }
 
     .section-title {
