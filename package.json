@@ -1,0 +1,16 @@
+{
+  "name": "summer-dating-site",
+  "version": "1.0.0",
+  "description": "Site web Summer Dating + Pipeline SEO blog automatisé",
+  "scripts": {
+    "pipeline": "node scripts/pipeline.js",
+    "build-index": "node scripts/build-index.js"
+  },
+  "dependencies": {
+    "openai": "^4.52.0",
+    "@anthropic-ai/sdk": "^0.30.0",
+    "rss-parser": "^3.13.0",
+    "slugify": "^1.6.6",
+    "dayjs": "^1.11.11"
+  }
+}

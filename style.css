@@ -207,6 +207,25 @@ nav {
     fill: currentColor;
 }
 
+.nav-links-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
 /* ================================================
    PAGE WRAPPER
    ================================================ */

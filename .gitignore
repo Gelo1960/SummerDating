@@ -1,6 +1,8 @@
 .DS_Store
 *.mp4
+node_modules/
 Nouveau dossier contenant des éléments/
 inspiration/
 screenshots-generator/
 optimisationdusite.md
+summer-seo-blog/
