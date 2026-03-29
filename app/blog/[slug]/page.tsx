@@ -126,6 +126,49 @@ export default async function BlogArticlePage({
         )}
       </article>
 
+      <section className="articles-grid" style={{ paddingTop: '2rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+          <h2
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: '1.3rem',
+              fontWeight: 700,
+              color: 'var(--text-primary)',
+            }}
+          >
+            Nos guides pour sortir
+          </h2>
+        </div>
+        <Link href="/lieux/date-a-paris" className="article-card">
+          <div className="card-category">Paris</div>
+          <h3
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 600,
+              fontSize: '1.1rem',
+            }}
+          >
+            Les meilleurs lieux pour un date à Paris
+          </h3>
+          <p>Restaurants, bars, balades romantiques et plus encore.</p>
+        </Link>
+        <Link href="/lieux" className="article-card">
+          <div className="card-category">Toutes les villes</div>
+          <h3
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 600,
+              fontSize: '1.1rem',
+            }}
+          >
+            Tous nos guides de dating par ville
+          </h3>
+          <p>
+            Découvrez les meilleurs spots dans toutes les grandes villes.
+          </p>
+        </Link>
+      </section>
+
       <footer className="blog-footer">
         <div className="footer-wrapper">
           <ul className="blog-footer-links">

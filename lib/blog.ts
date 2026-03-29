@@ -116,5 +116,5 @@ export function getAllSlugs(): string[] {
       .map((f) => f.replace('.html', ''));
   }
 
-  return [...new Set([...fromJson, ...fromFiles])];
+  return Array.from(new Set([...fromJson, ...fromFiles]));
 }

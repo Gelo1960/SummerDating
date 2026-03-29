@@ -1,9 +1,10 @@
 export default function CTABox() {
   return (
     <section className="cta-box" aria-label="Appel à l'action">
-      <h2 className="cta-box-title">Retrouve tous ces lieux dans l&apos;app</h2>
+      <h2 className="cta-box-title">Envie d&apos;y aller ce soir ?</h2>
       <p className="cta-box-subtitle">
-        Summer Dating — et trouve ton prochain date parfait
+        Retrouve tous ces lieux sur Summer Dating, rejoins des sorties et
+        rencontre des gens qui partagent tes envies.
       </p>
       <a
         href="https://apps.apple.com/fr/app/summer-dating/id6670174638"

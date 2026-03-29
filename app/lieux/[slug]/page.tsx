@@ -24,6 +24,7 @@ import CTABox from '@/components/CTABox';
 import FAQSection from '@/components/FAQSection';
 import RelatedGuides from '@/components/RelatedGuides';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { getArticles } from '@/lib/blog';
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -238,6 +239,7 @@ async function CityHubContent({
       ))}
 
       <CTABox />
+      <BlogCrossLinks />
       <Footer />
     </div>
   );
@@ -327,6 +329,8 @@ async function CategoryCityContent({ slug }: { slug: string }) {
         category={category.titleFR}
       />
 
+      <BlogCrossLinks />
+
       <SchemaMarkup
         title={h1}
         description={metaDescription}
@@ -347,6 +351,43 @@ async function CategoryCityContent({ slug }: { slug: string }) {
 // ---------------------------------------------------------------------------
 // Shared components
 // ---------------------------------------------------------------------------
+
+function BlogCrossLinks() {
+  const articles = getArticles().slice(0, 3);
+  if (articles.length === 0) return null;
+
+  return (
+    <section className="lieux-content" style={{ marginTop: 48 }}>
+      <h2 className="place-name" style={{ fontSize: 22, marginBottom: 16 }}>
+        Sur le blog
+      </h2>
+      <div className="related-grid">
+        {articles.map((article) => (
+          <Link
+            key={article.slug}
+            href={`/blog/${article.slug}`}
+            className="related-card"
+          >
+            <span
+              className="related-card-emoji"
+              aria-hidden="true"
+              style={{ fontSize: 18 }}
+            >
+              {'\u{1F4DD}'}
+            </span>
+            <span>
+              {article.title}
+              <br />
+              <span style={{ fontSize: 13, fontWeight: 400, opacity: 0.7 }}>
+                {article.dateDisplay}
+              </span>
+            </span>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function Nav() {
   return (
@@ -388,6 +429,9 @@ function Footer() {
           </li>
           <li>
             <Link href="/lieux">Guides</Link>
+          </li>
+          <li>
+            <Link href="/blog">Blog</Link>
           </li>
           <li>
             <Link href="/privacy-policy">Confidentialité</Link>

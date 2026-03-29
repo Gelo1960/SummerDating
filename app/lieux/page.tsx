@@ -121,6 +121,9 @@ export default async function LieuxIndexPage() {
               <Link href="/lieux">Guides</Link>
             </li>
             <li>
+              <Link href="/blog">Blog</Link>
+            </li>
+            <li>
               <Link href="/privacy-policy">Confidentialité</Link>
             </li>
             <li>
