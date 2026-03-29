@@ -29,7 +29,7 @@ export default function TermsOfServicePage() {
             />
           </Link>
           <a
-            href="https://apps.apple.com/fr/app/summer-dating/id6670174638"
+            href="https://apps.apple.com/fr/app/summer-dating/id6753696473"
             className="nav-cta"
             target="_blank"
             rel="noopener noreferrer"

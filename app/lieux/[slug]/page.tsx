@@ -140,7 +140,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 // ---------------------------------------------------------------------------
 
 const APP_STORE_URL =
-  'https://apps.apple.com/fr/app/summer-dating/id6670174638';
+  'https://apps.apple.com/fr/app/summer-dating/id6753696473';
 
 export default async function LieuPage({ params }: PageProps) {
   const { slug } = await params;

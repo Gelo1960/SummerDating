@@ -6,7 +6,7 @@ import { getArticleContent, getAllSlugs } from '@/lib/blog';
 import '../blog.css';
 
 const APP_STORE_URL =
-  'https://apps.apple.com/fr/app/summer-dating/id6670174638';
+  'https://apps.apple.com/fr/app/summer-dating/id6753696473';
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));

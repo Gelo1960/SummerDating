@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 const APP_STORE_URL =
-  'https://apps.apple.com/fr/app/summer-dating/id6670174638';
+  'https://apps.apple.com/fr/app/summer-dating/id6753696473';
 
 export default function BlogPage() {
   const articles = getArticles();

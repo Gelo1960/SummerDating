@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
   },
   other: {
-    'apple-itunes-app': 'app-id=6670174638',
+    'apple-itunes-app': 'app-id=6753696473',
     'google-site-verification': 'NYaPZrH5cCKgfs1IpJ5pf42fO1ouqzySk7JAVkyEoX4',
   },
   verification: {

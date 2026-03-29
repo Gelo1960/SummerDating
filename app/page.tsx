@@ -51,9 +51,9 @@ const jsonLd = {
     name: 'Kouassi Ange Yao',
   },
   downloadUrl:
-    'https://apps.apple.com/fr/app/summer-dating/id6670174638',
+    'https://apps.apple.com/fr/app/summer-dating/id6753696473',
   installUrl:
-    'https://apps.apple.com/fr/app/summer-dating/id6670174638',
+    'https://apps.apple.com/fr/app/summer-dating/id6753696473',
   screenshot: 'https://summer.dating/imagedemain.png',
   softwareVersion: '1.0',
   contentRating: '17+',
@@ -89,7 +89,7 @@ export default function HomePage() {
               Blog
             </a>
             <a
-              href="https://apps.apple.com/fr/app/summer-dating/id6670174638"
+              href="https://apps.apple.com/fr/app/summer-dating/id6753696473"
               className="nav-cta"
               target="_blank"
               rel="noopener noreferrer"
@@ -116,7 +116,7 @@ export default function HomePage() {
             </p>
 
             <a
-              href="https://apps.apple.com/fr/app/summer-dating/id6670174638"
+              href="https://apps.apple.com/fr/app/summer-dating/id6753696473"
               className="appstore-btn"
               target="_blank"
               rel="noopener noreferrer"
@@ -489,7 +489,7 @@ export default function HomePage() {
             </p>
 
             <a
-              href="https://apps.apple.com/fr/app/summer-dating/id6670174638"
+              href="https://apps.apple.com/fr/app/summer-dating/id6753696473"
               className="appstore-btn"
               target="_blank"
               rel="noopener noreferrer"
@@ -582,7 +582,7 @@ export default function HomePage() {
           <span>Vidéo</span>
         </a>
         <a
-          href="https://apps.apple.com/fr/app/summer-dating/id6670174638"
+          href="https://apps.apple.com/fr/app/summer-dating/id6753696473"
           className="tab-item tab-download"
           target="_blank"
           rel="noopener noreferrer"

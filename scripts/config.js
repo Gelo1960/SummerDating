@@ -14,7 +14,7 @@ module.exports = {
     url: "https://summer.dating",
     blogPath: "/blog",
     appStoreUrl:
-      "https://apps.apple.com/fr/app/summer-dating/id6670174638",
+      "https://apps.apple.com/fr/app/summer-dating/id6753696473",
     description:
       "L'app qui transforme chaque sortie en aventure. Événements, rencontres, expériences uniques.",
   },

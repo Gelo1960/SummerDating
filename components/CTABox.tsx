@@ -7,7 +7,7 @@ export default function CTABox() {
         rencontre des gens qui partagent tes envies.
       </p>
       <a
-        href="https://apps.apple.com/fr/app/summer-dating/id6670174638"
+        href="https://apps.apple.com/fr/app/summer-dating/id6753696473"
         className="cta-button"
         target="_blank"
         rel="noopener noreferrer"
