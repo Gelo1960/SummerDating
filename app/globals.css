@@ -363,6 +363,22 @@ nav {
     font-weight: 700;
 }
 
+.hero-surtitle {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.12), rgba(247, 160, 114, 0.12));
+    color: var(--gradient-start);
+    padding: 6px 18px;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    letter-spacing: 0.02em;
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(255, 107, 157, 0.15);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
 .hero-subtitle {
     font-size: 14px;
     color: var(--text-secondary);

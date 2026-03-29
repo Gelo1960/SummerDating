@@ -2,18 +2,18 @@ import type { Metadata } from 'next';
 import HomeInteractions from '@/components/HomeInteractions';
 
 export const metadata: Metadata = {
-  title: 'Summer Dating — Transforme ton quotidien en aventure',
+  title: 'Summer Dating | App de rencontres IRL et sorties à Paris',
   description:
-    "Découvre des lieux, des événements et des gens autour de toi. L'app qui te pousse à sortir et vivre. Disponible sur l'App Store.",
+    "Découvrez des lieux insolites, participez à des événements et faites des rencontres IRL à Paris et en Île-de-France. Téléchargez Summer Dating gratuitement !",
   alternates: {
     canonical: 'https://summer.dating/',
   },
   openGraph: {
     type: 'website',
     url: 'https://summer.dating/',
-    title: 'Summer Dating — Transforme ton quotidien en aventure',
+    title: 'Summer Dating | App de rencontres IRL et sorties à Paris',
     description:
-      "Découvre des lieux, des événements et des gens autour de toi. L'app qui te pousse à sortir et vivre.",
+      "Découvrez des lieux insolites, participez à des événements et faites des rencontres IRL à Paris et en Île-de-France.",
     images: [
       {
         url: 'https://summer.dating/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png',
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Summer Dating — Transforme ton quotidien en aventure',
+    title: 'Summer Dating | App de rencontres IRL et sorties à Paris',
     description:
-      "Découvre des lieux, des événements et des gens autour de toi. L'app qui te pousse à sortir et vivre.",
+      "Découvrez des lieux insolites, participez à des événements et faites des rencontres IRL à Paris et en Île-de-France.",
     images: [
       'https://summer.dating/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png',
     ],
@@ -40,7 +40,7 @@ const jsonLd = {
   operatingSystem: 'iOS',
   applicationCategory: 'SocialNetworkingApplication',
   description:
-    "L'app qui te pousse à sortir, découvrir des endroits, rejoindre des événements et rencontrer des gens IRL.",
+    "L'app de rencontres IRL et de sorties à Paris. Découvre des lieux insolites, rejoins des événements et rencontre des gens autour de toi.",
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -85,7 +85,7 @@ export default function HomePage() {
             <a href="/lieux" className="nav-link">
               Guides
             </a>
-            <a href="/blog/" className="nav-link">
+            <a href="/blog" className="nav-link">
               Blog
             </a>
             <a
@@ -104,6 +104,7 @@ export default function HomePage() {
         {/* Section: Hero */}
         <section className="hero" id="sec-accueil">
           <div className="page-wrapper">
+            <p className="hero-surtitle">L&apos;application de rencontres et sorties à Paris</p>
             <h1>
               Chaque sortie
               <br />
@@ -610,7 +611,7 @@ export default function HomePage() {
               <a href="/lieux">Guides</a>
             </li>
             <li>
-              <a href="/blog/">Blog</a>
+              <a href="/blog">Blog</a>
             </li>
             <li>
               <a href="/support">Support</a>

@@ -8,13 +8,13 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://summer.dating'),
   title: {
-    default: 'Summer Dating — Transforme ton quotidien en aventure',
-    template: '%s — Summer Dating',
+    default: 'Summer Dating | App de rencontres IRL et sorties à Paris',
+    template: '%s | Summer Dating',
   },
   description:
-    "Découvre des lieux, des événements et des gens autour de toi. L'app qui te pousse à sortir et vivre. Disponible sur l'App Store.",
+    "Découvrez des lieux insolites, participez à des événements et faites des rencontres IRL à Paris et en Île-de-France. Téléchargez Summer Dating gratuitement !",
   keywords:
-    'sortir paris, activités paris, événements paris, lieux insolites, rencontrer des gens, que faire à paris, sorties ile de france',
+    'app rencontre paris, sortir paris, rencontres IRL, activités paris, événements paris, lieux insolites paris, que faire à paris, sorties ile de france, rencontrer du monde paris, premier date paris',
   authors: [{ name: 'Kouassi Ange Yao' }],
   icons: {
     icon: '/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png',
