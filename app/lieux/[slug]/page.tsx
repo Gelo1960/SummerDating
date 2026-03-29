@@ -93,8 +93,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const city = getCityBySlug(cityHubSlug);
     if (!city) return {};
 
-    const title = `Les meilleurs lieux pour un date a ${city.name}`;
-    const description = `Decouvrez notre selection des meilleurs spots pour un date a ${city.name}. Restaurants, bars, balades, sorties culturelles et plus encore.`;
+    const title = `Les meilleurs lieux pour un date à ${city.name}`;
+    const description = `Découvrez notre sélection des meilleurs spots pour un date à ${city.name}. Restaurants, bars, balades, sorties culturelles et plus encore.`;
     const canonicalUrl = `https://summer.dating/lieux/${slug}`;
 
     return {
@@ -194,15 +194,15 @@ async function CityHubContent({
 
       <header className="lieux-header">
         <h1>
-          Les meilleurs lieux pour un date a{' '}
+          Les meilleurs lieux pour un date à{' '}
           <span className="highlight">{city.name}</span>
         </h1>
       </header>
 
       <p className="lieux-intro">
-        Explorez nos guides thematiques pour trouver le spot parfait pour votre
-        prochain date a {city.name}. {categories.length} categories, des
-        dizaines de lieux selectionnes.
+        Explorez nos guides thématiques pour trouver le spot parfait pour votre
+        prochain date à {city.name}. {categories.length} catégories, des
+        dizaines de lieux sélectionnés.
       </p>
 
       {validPreviews.map(({ key, mapping, count, pageSlug, preview }) => (
@@ -371,7 +371,7 @@ function Nav() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Telecharger
+          Télécharger
         </a>
       </div>
     </nav>
@@ -390,18 +390,18 @@ function Footer() {
             <Link href="/lieux">Guides</Link>
           </li>
           <li>
-            <Link href="/privacy_policy.html">Confidentialite</Link>
+            <Link href="/privacy-policy">Confidentialité</Link>
           </li>
           <li>
-            <Link href="/terms_of_service.html">CGU</Link>
+            <Link href="/terms-of-service">CGU</Link>
           </li>
           <li>
-            <Link href="/support.html">Support</Link>
+            <Link href="/support">Support</Link>
           </li>
         </ul>
         <p className="lieux-footer-copy">
           &copy; {new Date().getFullYear()} Summer Dating. Tous droits
-          reserves.
+          réservés.
         </p>
       </div>
     </footer>

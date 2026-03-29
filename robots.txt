@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://summer-dating.vercel.app/sitemap.xml

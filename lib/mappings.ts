@@ -18,55 +18,55 @@ export const CATEGORY_MAPPING: Record<string, CategoryMapping> = {
   culture: {
     slug: 'sorties-culturelles-date',
     titleFR: 'Sorties culturelles',
-    h1Template: 'Top {count} sorties culturelles pour un date a {city}',
+    h1Template: 'Top {count} sorties culturelles pour un date à {city}',
     metaTemplate:
-      'Decouvrez {count} idees de sorties culturelles pour un date inoubliable a {city}. Musees, expos, spectacles : les meilleurs plans selectionnes.',
+      'Découvrez {count} idées de sorties culturelles pour un date inoubliable à {city}. Musées, expos, spectacles : les meilleurs plans sélectionnés.',
     emoji: '\uD83C\uDFAD',
   },
   gastronomie: {
     slug: 'restaurants-date',
     titleFR: 'Restaurants',
-    h1Template: 'Top {count} restaurants pour un date a {city}',
+    h1Template: 'Top {count} restaurants pour un date à {city}',
     metaTemplate:
-      'Les {count} meilleurs restaurants pour un date a {city}. Cuisine locale, gastronomie, ambiance romantique : notre selection.',
+      'Les {count} meilleurs restaurants pour un date à {city}. Cuisine locale, gastronomie, ambiance romantique : notre sélection.',
     emoji: '\uD83C\uDF7D\uFE0F',
   },
   'vie-locale': {
     slug: 'bars-ambiance-date',
     titleFR: 'Bars & ambiance',
-    h1Template: 'Top {count} bars et spots ambiance pour un date a {city}',
+    h1Template: 'Top {count} bars et spots ambiance pour un date à {city}',
     metaTemplate:
-      'Decouvrez {count} bars et lieux d\'ambiance pour un date reussi a {city}. Vie locale, terrasses, ambiance authentique.',
+      'Découvrez {count} bars et lieux d\'ambiance pour un date réussi à {city}. Vie locale, terrasses, ambiance authentique.',
     emoji: '\uD83C\uDF7A',
   },
   nightlife: {
     slug: 'bars-cocktails-date',
     titleFR: 'Bars & cocktails',
-    h1Template: 'Top {count} bars a cocktails pour un date a {city}',
+    h1Template: 'Top {count} bars à cocktails pour un date à {city}',
     metaTemplate:
-      '{count} bars a cocktails et spots nightlife pour un date a {city}. Speakeasy, rooftops, ambiance tamisee.',
+      '{count} bars à cocktails et spots nightlife pour un date à {city}. Speakeasy, rooftops, ambiance tamisée.',
     emoji: '\uD83C\uDF78',
   },
   nature: {
     slug: 'balades-romantiques',
     titleFR: 'Balades romantiques',
-    h1Template: 'Top {count} balades romantiques pour un date a {city}',
+    h1Template: 'Top {count} balades romantiques pour un date à {city}',
     metaTemplate:
-      '{count} idees de balades romantiques a {city}. Parcs, jardins, bords de l\'eau : les plus beaux itineraires en amoureux.',
+      '{count} idées de balades romantiques à {city}. Parcs, jardins, bords de l\'eau : les plus beaux itinéraires en amoureux.',
     emoji: '\uD83C\uDF3F',
   },
   insolite: {
     slug: 'sorties-insolites-date',
     titleFR: 'Sorties insolites',
-    h1Template: 'Top {count} sorties insolites pour un date a {city}',
+    h1Template: 'Top {count} sorties insolites pour un date à {city}',
     metaTemplate:
-      '{count} idees de sorties insolites et originales pour un date a {city}. Surprenez votre moitie avec des lieux hors du commun.',
+      '{count} idées de sorties insolites et originales pour un date à {city}. Surprenez votre moitié avec des lieux hors du commun.',
     emoji: '\uD83E\uDE84',
   },
   romantique: {
     slug: 'lieux-romantiques',
     titleFR: 'Lieux romantiques',
-    h1Template: 'Top {count} lieux romantiques pour un date a {city}',
+    h1Template: 'Top {count} lieux romantiques pour un date à {city}',
     metaTemplate:
       'Les {count} lieux les plus romantiques de {city} pour un date. Restaurants intimes, vues panoramiques, spots secrets.',
     emoji: '\u2764\uFE0F',
@@ -74,41 +74,41 @@ export const CATEGORY_MAPPING: Record<string, CategoryMapping> = {
   shopping: {
     slug: 'shopping-date',
     titleFR: 'Shopping',
-    h1Template: 'Top {count} spots shopping pour un date a {city}',
+    h1Template: 'Top {count} spots shopping pour un date à {city}',
     metaTemplate:
-      '{count} idees shopping pour un date fun a {city}. Marches, boutiques, concept stores : faites du shopping a deux.',
+      '{count} idées shopping pour un date fun à {city}. Marchés, boutiques, concept stores : faites du shopping à deux.',
     emoji: '\uD83D\uDECD\uFE0F',
   },
   'bien-etre': {
     slug: 'bien-etre-couple',
-    titleFR: 'Bien-etre en couple',
-    h1Template: 'Top {count} experiences bien-etre pour un date a {city}',
+    titleFR: 'Bien-être en couple',
+    h1Template: 'Top {count} expériences bien-être pour un date à {city}',
     metaTemplate:
-      '{count} experiences bien-etre et detente pour un date a {city}. Spas, hammams, massages duo : prenez soin de vous a deux.',
+      '{count} expériences bien-être et détente pour un date à {city}. Spas, hammams, massages duo : prenez soin de vous à deux.',
     emoji: '\uD83E\uDDD6',
   },
   cafe: {
     slug: 'cafes-date',
-    titleFR: 'Cafes',
-    h1Template: 'Top {count} cafes pour un date a {city}',
+    titleFR: 'Cafés',
+    h1Template: 'Top {count} cafés pour un date à {city}',
     metaTemplate:
-      'Les {count} meilleurs cafes pour un premier date a {city}. Ambiance cosy, bon cafe, spots Instagram : notre selection.',
+      'Les {count} meilleurs cafés pour un premier date à {city}. Ambiance cosy, bon café, spots Instagram : notre sélection.',
     emoji: '\u2615',
   },
   famille: {
     slug: 'activites-date',
-    titleFR: 'Activites',
-    h1Template: 'Top {count} activites pour un date a {city}',
+    titleFR: 'Activités',
+    h1Template: 'Top {count} activités pour un date à {city}',
     metaTemplate:
-      '{count} idees d\'activites pour un date original a {city}. Sorties ludiques, ateliers, experiences a partager a deux.',
+      '{count} idées d\'activités pour un date original à {city}. Sorties ludiques, ateliers, expériences à partager à deux.',
     emoji: '\uD83C\uDFAF',
   },
   sport: {
     slug: 'activites-sportives-date',
-    titleFR: 'Activites sportives',
-    h1Template: 'Top {count} activites sportives pour un date a {city}',
+    titleFR: 'Activités sportives',
+    h1Template: 'Top {count} activités sportives pour un date à {city}',
     metaTemplate:
-      '{count} activites sportives pour un date dynamique a {city}. Escalade, velo, yoga, paddle : bougez ensemble.',
+      '{count} activités sportives pour un date dynamique à {city}. Escalade, vélo, yoga, paddle : bougez ensemble.',
     emoji: '\uD83C\uDFC4',
   },
 };
@@ -169,7 +169,7 @@ export const CITY_MAPPING: Record<string, CityMapping> = {
   },
   bangkok: {
     name: 'Bangkok',
-    country: 'Thailande',
+    country: 'Thaïlande',
     lang: 'th',
     slug: 'bangkok',
   },
@@ -199,7 +199,7 @@ export const CITY_MAPPING: Record<string, CityMapping> = {
   },
   prague: {
     name: 'Prague',
-    country: 'Republique tcheque',
+    country: 'République tchèque',
     lang: 'cs',
     slug: 'prague',
   },
@@ -211,7 +211,7 @@ export const CITY_MAPPING: Record<string, CityMapping> = {
   },
   athens: {
     name: 'Athens',
-    country: 'Grece',
+    country: 'Grèce',
     lang: 'el',
     slug: 'athens',
   },
@@ -271,7 +271,7 @@ export const CITY_MAPPING: Record<string, CityMapping> = {
   },
   seoul: {
     name: 'Seoul',
-    country: 'Coree du Sud',
+    country: 'Corée du Sud',
     lang: 'ko',
     slug: 'seoul',
   },
@@ -295,7 +295,7 @@ export const CITY_MAPPING: Record<string, CityMapping> = {
   },
   stockholm: {
     name: 'Stockholm',
-    country: 'Suede',
+    country: 'Suède',
     lang: 'sv',
     slug: 'stockholm',
   },
@@ -313,7 +313,7 @@ export const CITY_MAPPING: Record<string, CityMapping> = {
   },
   'rio de janeiro': {
     name: 'Rio de Janeiro',
-    country: 'Bresil',
+    country: 'Brésil',
     lang: 'pt',
     slug: 'rio-de-janeiro',
   },

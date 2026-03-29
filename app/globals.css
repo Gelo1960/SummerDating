@@ -90,7 +90,9 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+.page-wrapper a:hover,
+.hero ~ section a:hover,
+#main-content a:hover {
     text-decoration: underline;
 }
 
@@ -429,7 +431,8 @@ nav {
    SECTION COMMONS
    ================================================ */
 
-section {
+.hero ~ section,
+#main-content > section {
     padding: 100px 0;
 }
 

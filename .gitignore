@@ -10,3 +10,5 @@ screenshots-generator/
 imagesapp/*.PNG
 optimisationdusite.md
 summer-seo-blog/
+.vercel
+.env*.local

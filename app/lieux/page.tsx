@@ -58,7 +58,7 @@ export default async function LieuxIndexPage() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Telecharger
+            Télécharger
           </a>
         </div>
       </nav>
@@ -69,9 +69,9 @@ export default async function LieuxIndexPage() {
       </header>
 
       <p className="lieux-intro">
-        Decouvrez les meilleurs spots pour un date dans les plus belles villes
+        Découvrez les meilleurs spots pour un date dans les plus belles villes
         du monde. Restaurants, bars, balades romantiques, sorties culturelles :
-        on a tout selectionne pour vous.
+        on a tout sélectionné pour vous.
       </p>
 
       {/* --- City Grid --- */}
@@ -121,18 +121,18 @@ export default async function LieuxIndexPage() {
               <Link href="/lieux">Guides</Link>
             </li>
             <li>
-              <Link href="/privacy_policy.html">Confidentialite</Link>
+              <Link href="/privacy-policy">Confidentialité</Link>
             </li>
             <li>
-              <Link href="/terms_of_service.html">CGU</Link>
+              <Link href="/terms-of-service">CGU</Link>
             </li>
             <li>
-              <Link href="/support.html">Support</Link>
+              <Link href="/support">Support</Link>
             </li>
           </ul>
           <p className="lieux-footer-copy">
             &copy; {new Date().getFullYear()} Summer Dating. Tous droits
-            reserves.
+            réservés.
           </p>
         </div>
       </footer>

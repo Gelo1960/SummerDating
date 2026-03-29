@@ -39,11 +39,11 @@ function buildBlogIndex() {
   <title>Blog — Summer Dating | Sorties, Dating & Lifestyle à Paris</title>
   <meta name="description" content="Découvrez nos articles sur les sorties, le dating et le lifestyle parisien. Tips, tendances et bons plans pour transformer chaque sortie en aventure.">
   <meta name="theme-color" content="#ff9ccf">
-  <link rel="canonical" href="https://summer-dating.vercel.app/blog/">
+  <link rel="canonical" href="https://summer.dating/blog/">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://summer-dating.vercel.app/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png">
-  <link rel="apple-touch-icon" href="https://summer-dating.vercel.app/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png">
+  <link rel="icon" type="image/png" href="https://summer.dating/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png">
+  <link rel="apple-touch-icon" href="https://summer.dating/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -291,11 +291,11 @@ function buildBlogIndex() {
 
   <header class="site-header">
     <nav class="site-nav">
-      <a href="https://summer-dating.vercel.app" class="logo">
-        <img src="https://summer-dating.vercel.app/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png" alt="Summer Dating" class="logo-img">
+      <a href="https://summer.dating" class="logo">
+        <img src="https://summer.dating/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png" alt="Summer Dating" class="logo-img">
       </a>
       <div class="nav-links-group">
-        <a href="https://summer-dating.vercel.app" class="nav-link">Accueil</a>
+        <a href="https://summer.dating" class="nav-link">Accueil</a>
         <a href="${config.site.appStoreUrl}" class="nav-cta" target="_blank" rel="noopener noreferrer">Télécharger</a>
       </div>
     </nav>
@@ -312,8 +312,8 @@ function buildBlogIndex() {
   </section>
 
   <footer>
-    <p>&copy; ${new Date().getFullYear()} Summer Dating — <a href="https://summer-dating.vercel.app">summer.dating</a></p>
-    <p style="margin-top:0.5rem"><a href="https://summer-dating.vercel.app/privacy_policy.html">Confidentialité</a> · <a href="https://summer-dating.vercel.app/terms_of_service.html">Conditions</a></p>
+    <p>&copy; ${new Date().getFullYear()} Summer Dating — <a href="https://summer.dating">summer.dating</a></p>
+    <p style="margin-top:0.5rem"><a href="https://summer.dating/privacy_policy.html">Confidentialité</a> · <a href="https://summer.dating/terms_of_service.html">Conditions</a></p>
   </footer>
 
 </body>

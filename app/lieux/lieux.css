@@ -213,7 +213,7 @@
     padding: 4px 12px;
     border-radius: var(--radius-full);
     background: linear-gradient(135deg, rgba(255, 107, 157, 0.12), rgba(247, 160, 114, 0.12));
-    color: var(--gradient-start);
+    color: #C9295E;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: -0.01em;
@@ -272,7 +272,7 @@
 
 .place-best-time {
     font-size: 13px;
-    color: var(--text-tertiary);
+    color: #6B6B8D;
     font-weight: 500;
 }
 

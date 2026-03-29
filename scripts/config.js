@@ -11,7 +11,7 @@ module.exports = {
   // === Site ===
   site: {
     name: "Summer Dating",
-    url: "https://summer-dating.vercel.app",
+    url: "https://summer.dating",
     blogPath: "/blog",
     appStoreUrl:
       "https://apps.apple.com/fr/app/summer-dating/id6670174638",
