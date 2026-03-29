@@ -1,81 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://summer-dating.vercel.app/</loc>
-    <lastmod>2026-03-29</lastmod>
+    <loc>https://summer.dating</loc>
+    
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/</loc>
-    <lastmod>2026-03-29</lastmod>
+    <loc>https://summer.dating/blog/</loc>
+    
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/trends-tiktok-couple-dates-viraux-paris-20260329-1025.html</loc>
+    <loc>https://summer.dating/blog/sorties-date-paris-semaine-30-mars-5-avril-2026.html</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/effet-dals-danser-paris-date-parfait-20260329-0707.html</loc>
+    <loc>https://summer.dating/blog/sorties-paris-mars-2026-date-originale-rencontre-irl.html</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/expo-matisse-grand-palais-date-culturel-paris-20260329-2100.html</loc>
+    <loc>https://summer.dating/blog/fatigue-apps-de-rencontre-alternative-sorties-paris.html</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/marathon-de-paris-2026-spots-date-sportif-20260329-1800.html</loc>
+    <loc>https://summer.dating/blog/fatigue-applis-rencontre-alternative-irl-paris.html</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/fatigue-apps-rencontre-alternative-sorties-paris.html</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/concert-celine-dion-paris-2026-rencontres-bars-accor-arena.html</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/disney-adventure-world-date-romantique-paris-20260329-1400.html</loc>
+    <loc>https://summer.dating/blog/marathon-de-paris-2026-spots-date-sportif-20260329-1800.html</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/meilleurs-rooftops-date-paris-2026-20260328-2000.html</loc>
+    <loc>https://summer.dating/blog/fatigue-apps-rencontre-alternative-sorties-paris.html</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/idees-premier-rendez-vous-paris-2026-20260328-1900.html</loc>
+    <loc>https://summer.dating/blog/concert-celine-dion-paris-2026-rencontres-bars-accor-arena.html</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/slow-dating-paris-tendance-2026-20260328-1830.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <loc>https://summer.dating/blog/disney-adventure-world-date-romantique-paris-20260329-1400.html</loc>
+    <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/foire-du-trone-2026-date-parfait-20260328-1630.html</loc>
+    <loc>https://summer.dating/blog/meilleurs-rooftops-date-paris-2026-20260328-2000.html</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://summer.dating/blog/idees-premier-rendez-vous-paris-2026-20260328-1900.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://summer.dating/blog/slow-dating-paris-tendance-2026-20260328-1830.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://summer.dating/blog/foire-du-trone-2026-date-parfait-20260328-1630.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
