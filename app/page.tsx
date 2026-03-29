@@ -6,17 +6,17 @@ export const metadata: Metadata = {
   description:
     "Découvre des lieux, des événements et des gens autour de toi. L'app qui te pousse à sortir et vivre. Disponible sur l'App Store.",
   alternates: {
-    canonical: 'https://summer-dating.vercel.app/',
+    canonical: 'https://summer.dating/',
   },
   openGraph: {
     type: 'website',
-    url: 'https://summer-dating.vercel.app/',
+    url: 'https://summer.dating/',
     title: 'Summer Dating — Transforme ton quotidien en aventure',
     description:
       "Découvre des lieux, des événements et des gens autour de toi. L'app qui te pousse à sortir et vivre.",
     images: [
       {
-        url: 'https://summer-dating.vercel.app/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png',
+        url: 'https://summer.dating/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png',
       },
     ],
     locale: 'fr_FR',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description:
       "Découvre des lieux, des événements et des gens autour de toi. L'app qui te pousse à sortir et vivre.",
     images: [
-      'https://summer-dating.vercel.app/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png',
+      'https://summer.dating/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png',
     ],
   },
 };
@@ -54,7 +54,7 @@ const jsonLd = {
     'https://apps.apple.com/fr/app/summer-dating/id6670174638',
   installUrl:
     'https://apps.apple.com/fr/app/summer-dating/id6670174638',
-  screenshot: 'https://summer-dating.vercel.app/imagedemain.png',
+  screenshot: 'https://summer.dating/imagedemain.png',
   softwareVersion: '1.0',
   contentRating: '17+',
 };
@@ -82,6 +82,9 @@ export default function HomePage() {
             />
           </a>
           <div className="nav-links-group">
+            <a href="/lieux" className="nav-link">
+              Guides
+            </a>
             <a href="/blog/" className="nav-link">
               Blog
             </a>
@@ -603,6 +606,12 @@ export default function HomePage() {
       <footer>
         <div className="page-wrapper">
           <ul className="footer-links">
+            <li>
+              <a href="/lieux">Guides</a>
+            </li>
+            <li>
+              <a href="/blog/">Blog</a>
+            </li>
             <li>
               <a href="/support">Support</a>
             </li>
