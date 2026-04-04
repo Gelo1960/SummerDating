@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
         <nav id="main-nav">
           <Link href="/" className="logo">
             <Image
-              src="/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png"
+              src="/logo.webp"
               alt="Summer Dating — Accueil"
               className="logo-img"
               width={40}

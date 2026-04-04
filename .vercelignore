@@ -2,3 +2,9 @@ node_modules
 .next
 .env*
 *.tsbuildinfo
+*.mp4
+*.MP4
+Nouveau dossier contenant des éléments/
+inspiration/
+screenshots-generator/
+summer-seo-blog/

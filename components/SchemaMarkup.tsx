@@ -34,7 +34,7 @@ export default function SchemaMarkup({
       name: 'Summer Dating',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://summer.dating/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png',
+        url: 'https://summer.dating/logo.webp',
       },
     },
     mainEntityOfPage: {

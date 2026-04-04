@@ -43,22 +43,52 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
     .filter(Boolean) as MetadataRoute.Sitemap;
 
-  // Blog articles (from public/blog/articles.json if exists)
+  // Blog index page
+  const blogIndexPage: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: 'daily', priority: 0.8 },
+  ];
+
+  // Blog articles (from blog/articles.json + HTML files in blog/)
   let blogPages: MetadataRoute.Sitemap = [];
   try {
-    const articlesPath = path.join(process.cwd(), 'public', 'blog', 'articles.json');
+    const blogDir = path.join(process.cwd(), 'blog');
+
+    // 1. Collect slugs from articles.json
+    const articlesPath = path.join(blogDir, 'articles.json');
+    let articleSlugs: string[] = [];
     if (fs.existsSync(articlesPath)) {
-      const articles = JSON.parse(fs.readFileSync(articlesPath, 'utf-8'));
-      blogPages = articles.map((a: { slug: string }) => ({
-        url: `${baseUrl}/blog/${a.slug}.html`,
-        lastModified: now,
+      const articles: { slug: string; date?: string }[] = JSON.parse(
+        fs.readFileSync(articlesPath, 'utf-8')
+      );
+      articleSlugs = articles.map((a) => a.slug);
+      blogPages = articles.map((a) => ({
+        url: `${baseUrl}/blog/${a.slug}`,
+        lastModified: a.date ? new Date(a.date) : now,
         changeFrequency: 'weekly' as const,
         priority: 0.6,
       }));
+    }
+
+    // 2. Also pick up any .html files not already in articles.json
+    if (fs.existsSync(blogDir)) {
+      const extraSlugs = fs
+        .readdirSync(blogDir)
+        .filter((f) => f.endsWith('.html') && f !== 'index.html')
+        .map((f) => f.replace('.html', ''))
+        .filter((s) => !articleSlugs.includes(s));
+
+      blogPages.push(
+        ...extraSlugs.map((slug) => ({
+          url: `${baseUrl}/blog/${slug}`,
+          lastModified: now,
+          changeFrequency: 'weekly' as const,
+          priority: 0.6,
+        }))
+      );
     }
   } catch {
     // Blog articles not found, skip
   }
 
-  return [...staticPages, ...cityPages, ...lieuxPages, ...blogPages];
+  return [...staticPages, ...cityPages, ...lieuxPages, ...blogIndexPage, ...blogPages];
 }

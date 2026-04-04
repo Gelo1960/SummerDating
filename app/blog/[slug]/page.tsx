@@ -74,7 +74,7 @@ export default async function BlogArticlePage({
       <nav className="blog-nav">
         <Link href="/" className="nav-logo">
           <img
-            src="/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png"
+            src="/logo.webp"
             alt="Summer Dating"
             className="nav-logo-img"
           />

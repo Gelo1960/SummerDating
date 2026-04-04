@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import HomeInteractions from '@/components/HomeInteractions';
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
       "Découvrez des lieux insolites, participez à des événements et faites des rencontres IRL à Paris et en Île-de-France.",
     images: [
       {
-        url: 'https://summer.dating/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png',
+        url: 'https://summer.dating/logo.webp',
       },
     ],
     locale: 'fr_FR',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     description:
       "Découvrez des lieux insolites, participez à des événements et faites des rencontres IRL à Paris et en Île-de-France.",
     images: [
-      'https://summer.dating/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png',
+      'https://summer.dating/logo.webp',
     ],
   },
 };
@@ -74,11 +75,12 @@ export default function HomePage() {
       <header>
         <nav id="main-nav">
           <a href="/" className="logo">
-            <img
-              src="/ee39fd9e-4cae-44ca-91f7-a91f053f9abf.png"
+            <Image
+              src="/logo.webp"
               alt="SummerDating"
               className="logo-img"
-              loading="eager"
+              width={44}
+              height={58}
             />
           </a>
           <div className="nav-links-group">
@@ -137,13 +139,13 @@ export default function HomePage() {
             <div className="hero-subtitle">Gratuit · iPhone</div>
 
             <div className="visual-area">
-              <img
+              <Image
                 src="/imagedemain.webp"
                 alt="Application SummerDating sur un téléphone"
                 className="phone-image"
                 width={560}
                 height={743}
-                loading="eager"
+                priority
               />
               <div className="feature-bubble" id="bubble1">
                 <span>📍</span> Événements &amp; Lieux
@@ -195,12 +197,12 @@ export default function HomePage() {
               <div className="bento-card bento-with-phone reveal">
                 <div className="bento-phone">
                   <div className="bento-phone-frame">
-                    <img
+                    <Image
                       src="/imagesapp/screen-carte-clusters.webp"
                       alt="Carte avec lieux autour de toi"
                       width={560}
                       height={1212}
-                      loading="lazy"
+                      sizes="200px"
                     />
                   </div>
                 </div>
@@ -251,12 +253,12 @@ export default function HomePage() {
               <div className="bento-card bento-with-phone bento-wide reveal">
                 <div className="bento-phone">
                   <div className="bento-phone-frame">
-                    <img
+                    <Image
                       src="/imagesapp/screen-feed.webp"
                       alt="Feed avec notifications de lieux"
                       width={560}
                       height={1212}
-                      loading="lazy"
+                      sizes="200px"
                     />
                   </div>
                 </div>
@@ -273,12 +275,12 @@ export default function HomePage() {
               <div className="bento-card bento-with-phone bento-wide reveal">
                 <div className="bento-phone">
                   <div className="bento-phone-frame">
-                    <img
+                    <Image
                       src="/imagesapp/screen-decouverte.webp"
                       alt="Découverte de personnes à proximité"
                       width={560}
                       height={1212}
-                      loading="lazy"
+                      sizes="200px"
                     />
                   </div>
                 </div>
@@ -317,12 +319,12 @@ export default function HomePage() {
                 <div className="phone-frame">
                   <div className="phone-notch" />
                   <div className="phone-screen">
-                    <img
+                    <Image
                       src="/imagesapp/screen-feed.webp"
                       alt="Feed principal avec lieux et météo"
                       width={560}
                       height={1212}
-                      loading="lazy"
+                      sizes="200px"
                     />
                   </div>
                 </div>
@@ -331,12 +333,12 @@ export default function HomePage() {
                 <div className="phone-frame">
                   <div className="phone-notch" />
                   <div className="phone-screen">
-                    <img
+                    <Image
                       src="/imagesapp/screen-sorties.webp"
                       alt="Liste des sorties"
                       width={560}
                       height={1212}
-                      loading="lazy"
+                      sizes="200px"
                     />
                   </div>
                 </div>
@@ -345,12 +347,12 @@ export default function HomePage() {
                 <div className="phone-frame">
                   <div className="phone-notch" />
                   <div className="phone-screen">
-                    <img
+                    <Image
                       src="/imagesapp/screen-decouverte.webp"
                       alt="Découverte de profils"
                       width={560}
                       height={1212}
-                      loading="lazy"
+                      sizes="200px"
                     />
                   </div>
                 </div>
@@ -359,12 +361,12 @@ export default function HomePage() {
                 <div className="phone-frame">
                   <div className="phone-notch" />
                   <div className="phone-screen">
-                    <img
+                    <Image
                       src="/imagesapp/screen-lieu.webp"
                       alt="Fiche détaillée d'un lieu"
                       width={560}
                       height={1212}
-                      loading="lazy"
+                      sizes="200px"
                     />
                   </div>
                 </div>
@@ -373,12 +375,12 @@ export default function HomePage() {
                 <div className="phone-frame">
                   <div className="phone-notch" />
                   <div className="phone-screen">
-                    <img
+                    <Image
                       src="/imagesapp/screen-carte.webp"
                       alt="Carte interactive de Paris"
                       width={560}
                       height={1212}
-                      loading="lazy"
+                      sizes="200px"
                     />
                   </div>
                 </div>
@@ -387,12 +389,12 @@ export default function HomePage() {
                 <div className="phone-frame">
                   <div className="phone-notch" />
                   <div className="phone-screen">
-                    <img
+                    <Image
                       src="/imagesapp/screen-carte-clusters.webp"
                       alt="Clusters de lieux"
                       width={560}
                       height={1212}
-                      loading="lazy"
+                      sizes="200px"
                     />
                   </div>
                 </div>
@@ -401,12 +403,12 @@ export default function HomePage() {
                 <div className="phone-frame">
                   <div className="phone-notch" />
                   <div className="phone-screen">
-                    <img
+                    <Image
                       src="/imagesapp/screen-carte-large.webp"
                       alt="Vue Europe"
                       width={560}
                       height={1212}
-                      loading="lazy"
+                      sizes="200px"
                     />
                   </div>
                 </div>
@@ -415,12 +417,12 @@ export default function HomePage() {
                 <div className="phone-frame">
                   <div className="phone-notch" />
                   <div className="phone-screen">
-                    <img
+                    <Image
                       src="/imagesapp/screen-navigation.webp"
                       alt="Navigation GPS"
                       width={560}
                       height={1212}
-                      loading="lazy"
+                      sizes="200px"
                     />
                   </div>
                 </div>
@@ -429,12 +431,12 @@ export default function HomePage() {
                 <div className="phone-frame">
                   <div className="phone-notch" />
                   <div className="phone-screen">
-                    <img
+                    <Image
                       src="/imagesapp/screen-carte-globe.webp"
                       alt="Vue globe mondiale"
                       width={560}
                       height={1212}
-                      loading="lazy"
+                      sizes="200px"
                     />
                   </div>
                 </div>
@@ -465,7 +467,7 @@ export default function HomePage() {
               <video
                 controls
                 playsInline
-                preload="metadata"
+                preload="none"
                 poster="/imagesapp/screen-feed.webp"
                 aria-label="Vidéo de démonstration de l'application Summer Dating"
               >
