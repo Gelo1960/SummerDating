@@ -2,212 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://summer-dating.vercel.app/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://summer-dating.vercel.app/blog/</loc>
-    <lastmod>2026-04-08</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/art-paris-2026-grand-palais-date-arty-ultime-20260408-0826.html</loc>
-    <lastmod>2026-04-08</lastmod>
+    <loc>https://summer-dating.vercel.app/blog/gare-de-lyon-fermee-1er-mai-dates-paris-weekend-20260430-2330.html</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/paris-cafe-festival-coffee-date-ultime-20260404-2030.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <loc>https://summer-dating.vercel.app/blog/fally-ipupa-stade-de-france-date-afro-paris-20260430-2230.html</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/expo-titanic-immersive-villette-date-epique-paris-20260404-1800.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <loc>https://summer-dating.vercel.app/blog/ponts-mai-2026-dates-paris-long-weekends-20260428-0500.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/expo-matisse-grand-palais-date-arty-paris-20260404-1600.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <loc>https://summer-dating.vercel.app/blog/foire-de-paris-2026-date-pont-1er-mai-20260428-0135.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/quai-branly-gratuit-20-ans-date-culturel-paris-20260404-1400.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <loc>https://summer-dating.vercel.app/blog/festival-du-livre-paris-2026-date-litteraire-grand-palais-20260414-2004.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/champs-elysees-pietons-date-romantique-paris-20260404-1005.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <loc>https://summer-dating.vercel.app/blog/comic-con-paris-2026-date-geek-villepinte-20260414-1301.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://summer-dating.vercel.app/blog/paques-paris-dates-long-weekend-20260403-1805.html</loc>
-    <lastmod>2026-04-03</lastmod>
+    <loc>https://summer-dating.vercel.app/blog/van-gogh-influenceur-auvers-date-arty-paris-20260417-1312.html</loc>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/expo-jeux-video-musique-philharmonie-date-geek-paris-20260403-1500.html</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/effet-culte-dating-paris-loft-story-2026-20260403-1200.html</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/tour-montparnasse-dernier-date-vue-panoramique-fermeture-20260330-1604.html</loc>
-    <lastmod>2026-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/expo-pop-art-car-champs-elysees-date-arty-gratuit-20260330-1430.html</loc>
-    <lastmod>2026-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/hanami-paris-cerisiers-fleurs-date-romantique-20260330-1030.html</loc>
-    <lastmod>2026-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/guide-michelin-2026-restos-etoiles-date-paris-20260330-2300.html</loc>
-    <lastmod>2026-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/expo-renoir-amour-orsay-date-romantique-paris-20260330-2205.html</loc>
-    <lastmod>2026-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/heure-dete-paris-dates-terrasse-soirees-printemps-20260329-2100.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/villette-15000m2-nature-date-printanier-paris-20260329-1742.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/fete-du-court-metrage-paris-date-gratuit-20260329-1308.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/trends-tiktok-couple-dates-viraux-paris-20260329-1025.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/effet-dals-danser-paris-date-parfait-20260329-0707.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/sorties-date-paris-semaine-30-mars-5-avril-2026.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/sorties-paris-mars-2026-date-originale-rencontre-irl.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/fatigue-apps-de-rencontre-alternative-sorties-paris.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/fatigue-applis-rencontre-alternative-irl-paris.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/marathon-de-paris-2026-spots-date-sportif-20260329-1800.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/fatigue-apps-rencontre-alternative-sorties-paris.html</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/concert-celine-dion-paris-2026-rencontres-bars-accor-arena.html</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/disney-adventure-world-date-romantique-paris-20260329-1400.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/meilleurs-rooftops-date-paris-2026-20260328-2000.html</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/idees-premier-rendez-vous-paris-2026-20260328-1900.html</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/slow-dating-paris-tendance-2026-20260328-1830.html</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/blog/foire-du-trone-2026-date-parfait-20260328-1630.html</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/privacy_policy.html</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://summer-dating.vercel.app/terms_of_service.html</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
 </urlset>
