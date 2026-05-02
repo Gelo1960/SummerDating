@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/generate-sitemap.js",
+    "sitemap": "node scripts/generate-sitemap.js",
     "start": "next start",
     "pipeline": "node scripts/pipeline.js",
     "build-index": "node scripts/build-index.js"

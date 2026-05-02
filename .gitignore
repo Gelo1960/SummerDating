@@ -12,3 +12,9 @@ optimisationdusite.md
 summer-seo-blog/
 .vercel
 .env*.local
+
+# Audits SEO privés (non versionnés)
+Audit_SEO_*.html
+Audit_SEO_*.md
+SITEMAP_DEPLOIEMENT.md
+test-write-permission.txt
