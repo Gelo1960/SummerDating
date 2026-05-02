@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://summer.dating/</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -283,6 +283,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://summer.dating/blog/date-lundi-soir-paris-sorties-insolites.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://summer.dating/blog/date-original-paris-fontaine-eau-petillante-gratuite.html</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -427,6 +433,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://summer.dating/blog/effet-dals-danser-paris-date-parfait-20260329-0707.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://summer.dating/blog/eurovision-2026-bars-paillettes-paris-16-mai-20260501-1305.html</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -446,6 +458,12 @@
   </url>
   <url>
     <loc>https://summer.dating/blog/expo-matisse-grand-palais-date-arty-paris-20260404-1600.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://summer.dating/blog/expo-matisse-grand-palais-date-culturel-paris-20260329-2100.html</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -740,6 +758,12 @@
   </url>
   <url>
     <loc>https://summer.dating/blog/festival-du-livre-paris-2026-date-litteraire-grand-palais-20260414-2004.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://summer.dating/blog/fete-du-court-metrage-paris-date-gratuit-20260329-1308.html</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1279,6 +1303,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://summer.dating/blog/trends-tiktok-couple-dates-viraux-paris-20260329-1025.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://summer.dating/blog/van-gogh-influenceur-auvers-date-arty-paris-20260417-1312.html</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -1315,37 +1345,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://summer.dating/blog/date-lundi-soir-paris-sorties-insolites.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://summer.dating/blog/disney-adventure-world-date-romantique-paris-20260329-1400.html</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://summer.dating/blog/effet-dals-danser-paris-date-parfait-20260329-0707.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://summer.dating/blog/expo-matisse-grand-palais-date-culturel-paris-20260329-2100.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://summer.dating/blog/fatigue-apps-de-rencontre-alternative-sorties-paris.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://summer.dating/blog/fete-du-court-metrage-paris-date-gratuit-20260329-1308.html</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1394,12 +1400,6 @@
   </url>
   <url>
     <loc>https://summer.dating/blog/sorties-paris-mars-2026-date-originale-rencontre-irl.html</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://summer.dating/blog/trends-tiktok-couple-dates-viraux-paris-20260329-1025.html</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
