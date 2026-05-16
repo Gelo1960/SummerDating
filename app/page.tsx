@@ -34,30 +34,62 @@ export const metadata: Metadata = {
   },
 };
 
+const APP_STORE_URL =
+  'https://apps.apple.com/fr/app/summer-dating/id6753696473';
+
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'MobileApplication',
-  name: 'Summer Dating',
-  operatingSystem: 'iOS',
-  applicationCategory: 'SocialNetworkingApplication',
-  description:
-    "L'app de rencontres IRL et de sorties à Paris. Découvre des lieux insolites, rejoins des événements et rencontre des gens autour de toi.",
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'EUR',
-  },
-  author: {
-    '@type': 'Person',
-    name: 'Kouassi Ange Yao',
-  },
-  downloadUrl:
-    'https://apps.apple.com/fr/app/summer-dating/id6753696473',
-  installUrl:
-    'https://apps.apple.com/fr/app/summer-dating/id6753696473',
-  screenshot: 'https://summer.dating/imagedemain.png',
-  softwareVersion: '1.0',
-  contentRating: '17+',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://summer.dating/#organization',
+      name: 'Summer Dating',
+      url: 'https://summer.dating',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://summer.dating/logo.webp',
+        width: 512,
+        height: 512,
+      },
+      founder: {
+        '@type': 'Person',
+        name: 'Kouassi Ange Yao',
+      },
+      sameAs: [
+        'https://apps.apple.com/fr/app/summer-dating/id6753696473',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://summer.dating/#website',
+      url: 'https://summer.dating',
+      name: 'Summer Dating',
+      inLanguage: 'fr-FR',
+      publisher: { '@id': 'https://summer.dating/#organization' },
+    },
+    {
+      '@type': 'MobileApplication',
+      '@id': 'https://summer.dating/#app',
+      name: 'Summer Dating',
+      operatingSystem: 'iOS',
+      applicationCategory: 'SocialNetworkingApplication',
+      description:
+        "L'app de rencontres IRL et de sorties à Paris. Découvre des lieux insolites, rejoins des événements et rencontre des gens autour de toi.",
+      url: 'https://summer.dating',
+      author: { '@id': 'https://summer.dating/#organization' },
+      publisher: { '@id': 'https://summer.dating/#organization' },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+      },
+      downloadUrl: APP_STORE_URL,
+      installUrl: APP_STORE_URL,
+      screenshot: 'https://summer.dating/imagedemain.webp',
+      softwareVersion: '1.0',
+      contentRating: '17+',
+    },
+  ],
 };
 
 export default function HomePage() {

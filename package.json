@@ -5,10 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/generate-sitemap.js",
-    "sitemap": "node scripts/generate-sitemap.js",
     "fix-domain": "node scripts/fix-domain.js",
     "check-orphans": "node scripts/check-orphans.js",
+    "cleanup-orphans": "node scripts/cleanup-orphans.js",
     "start": "next start",
     "pipeline": "node scripts/pipeline.js",
     "build-index": "node scripts/build-index.js"

@@ -1,8 +1,12 @@
 import { MetadataRoute } from 'next';
-import { getAllCityCategories, getAllCities } from '@/lib/supabase';
+import { getAllCityCategories } from '@/lib/supabase';
 import { CATEGORY_MAPPING, CITY_MAPPING, buildPageSlug } from '@/lib/mappings';
 import * as fs from 'fs';
 import * as path from 'path';
+
+// Re-generate the sitemap at most once per hour. The data comes from Supabase
+// + blog/ filesystem, so we don't want it baked in at build time forever.
+export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://summer.dating';
